@@ -25,8 +25,8 @@ class Chromosome:
         # No two classes may be scheduled in the same room at the same time.
         penalty += 100 * self._check_room_conflicts()
 
-        # A section must not have more than one class scheduled at the same time
-        penalty += 100 * self._check_section_conflicts()
+        # # A section must not have more than one class scheduled at the same time
+        # penalty += 100 * self._check_section_conflicts()
 
         # Classes must be scheduled within the time window of 7:00 AM to 9:00 PM.
         penalty += 100 * self._check_time_window()

@@ -81,69 +81,69 @@ def create_sample_data():
         Subject("GEETH01X", ["CS", "IT"], [
             SessionTemplate("GEETH01X", 1, SessionType.ONLINE, 2),
             SessionTemplate("GEETH01X", 2, SessionType.ONLINE, 2),
-        ]),
+        ], False),
         Subject("GENAT01R", ["CS", "IT"], [
             SessionTemplate("GENAT01R", 1, SessionType.ONLINE, 2),
             SessionTemplate("GENAT01R", 2, SessionType.ONLINE, 2),
-        ]),
+        ], False),
         Subject("MNSTP02X", ["CS", "IT"],[
             SessionTemplate("MNSTP02X", 1, SessionType.ONLINE, 2),
             SessionTemplate("MNSTP02X", 2, SessionType.ONLINE, 2),
-        ]),
+        ], False),
         Subject("MCFIT03X", ["CS", "IT"],[
             SessionTemplate("MCFIT03X", 1, SessionType.PHYS_LAB, 2.67),
-        ]),
+        ], True),
         Subject("CCDISTR1", ["CS", "IT"],[
             SessionTemplate("CCDISTR1", 1, SessionType.LECTURE, 2),
             SessionTemplate("CCDISTR1", 2, SessionType.LECTURE, 2),
-        ]),
+        ], True),
         Subject("CCOBJPGL", ["CS", "IT"],[
             SessionTemplate("CCOBJPGL", 1, SessionType.LAB, 4),
             SessionTemplate("CCOBJPGL", 2, SessionType.LECTURE, 2.67),
-        ]),
+        ], True),
         Subject("CCPHYS2L", ["CS", "IT"],[
             SessionTemplate("CCPHYS2L", 1, SessionType.LECTURE, 4),
             SessionTemplate("CCPHYS2L", 2, SessionType.LECTURE, 4),
-        ]),
+        ], True),
         Subject("CTBASNTL", ["CS", "IT"],[
             SessionTemplate("CTBASNTL", 1, SessionType.HARDWARE_LAB, 4),
             SessionTemplate("CTBASNTL", 2, SessionType.HARDWARE_LAB, 2.67),
-        ]),
+        ], True),
         Subject("CCALCOMP", ["CS"],[
             SessionTemplate("CCALCOMP", 1, SessionType.LECTURE, 1),
             SessionTemplate("CCALCOMP", 2, SessionType.LECTURE, 1),
-        ]),
+        ], True),
         Subject("CTFDMBSL", ["CS", "IT"],[
             SessionTemplate("CTFDMBSL", 1, SessionType.LAB, 4),
             SessionTemplate("CTFDMBSL", 2, SessionType.LECTURE, 2.67),
-        ]),
+        ], True),
         Subject("CCQUAMET", ["CS", "IT"],[
             SessionTemplate("CCQUAMET", 1, SessionType.LECTURE, 2),
             SessionTemplate("CCQUAMET", 2, SessionType.LECTURE, 2),
-        ]),
+        ], True),
         Subject("CCINTHCI", ["CS", "IT"],[
             SessionTemplate("CCINTHCI", 1, SessionType.LAB, 4),
-        ]),
+        ], True),
         Subject("CTAPDEVL", ["CS"],[
             SessionTemplate("CTAPDEVL", 1, SessionType.LAB, 4),
             SessionTemplate("CTAPDEVL", 2, SessionType.LECTURE, 2.67),
-        ]),
+        ], True),
         Subject("CTWBDEVL", ["IT"], [
             SessionTemplate("CTWBDEVL", 1, SessionType.LAB, 4),
             SessionTemplate("CTWBDEVL", 2, SessionType.LECTURE, 2.67),
-        ]),
+        ], True),
         Subject("CTAPROJ1", ["IT"], [
             SessionTemplate("CTAPROJ1", 1, SessionType.ONLINE, 2),
             SessionTemplate("CTAPROJ1", 2, SessionType.ONLINE, 2),
-        ]),
+        ], False),
         Subject("CTAINASL", ["IT"],[
             SessionTemplate("CTAINASL", 1, SessionType.LECTURE, 2.67),
             SessionTemplate("CTAINASL", 2, SessionType.LAB, 4),
-        ]),
+        ], True),
         Subject("CTADWEBL",["IT"], [
             SessionTemplate("CTADWEBL", 1, SessionType.LECTURE, 2.67),
             SessionTemplate("CTADWEBL", 2, SessionType.LAB, 4),
-        ]),
+        ], True),
     ]
 
     sections = [
@@ -157,9 +157,9 @@ def create_sample_data():
 
         #2nd year
         Section("COM231" , "CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "GEETH01X"], 45),
         Section("COM232","CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "GEETH01X"], 45),
 
         # #3rd year
         # Section("COM221", "CS",

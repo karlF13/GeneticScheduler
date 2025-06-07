@@ -30,6 +30,7 @@ class GeneticScheduler:
         self.subject_dict = {s.id: s for s in subjects}
         self.professor_dict = {p.id: p for p in professors}
         self.room_dict = {r.id: r for r in rooms}
+        self.section_dict = {sc.id: sc for sc in sections}
 
         # Valid time slots hahah di ko pa sure kasi kung pano
         # self.valid_time_slots = [7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5,
@@ -83,13 +84,16 @@ class GeneticScheduler:
         """Try to create a gene without conflicts"""
 
         # Get eligible professors
-        eligible_professors = [p for p in self.professors if subject_id in p.subjects]
+        eligible_professors = [p for p in self.professors if subject_id in p.subjects and section.course in p.course ]
         if not eligible_professors:
             return None
 
         # Get eligible rooms
-        eligible_rooms = [r for r in self.rooms
+        if self.subject_dict[subject_id].requires_room:
+            eligible_rooms = [r for r in self.rooms
                           if r.room_type == session_template.session_type]
+        else:
+            eligible_rooms = []
 
         # Try different combinations
         attempts = 0
@@ -145,13 +149,17 @@ class GeneticScheduler:
     def _create_random_gene(self, section: Section, subject_id: str,
                             session_template: SessionTemplate) -> Gene:
         """Fallback random gene creation"""
-        eligible_professors = [p for p in self.professors if subject_id in p.subjects]
+        eligible_professors = [p for p in self.professors if subject_id in p.subjects and section.course in p.course]
         professor = random.choice(eligible_professors)
 
         room_id = None
 
-        eligible_rooms = [r for r in self.rooms
-                          if r.room_type == session_template.session_type]
+        if self.subject_dict[subject_id].requires_room:
+            eligible_rooms = [r for r in self.rooms
+                              if r.room_type == session_template.session_type]
+        else:
+            eligible_rooms =[]
+
         if eligible_rooms:
             room_id = random.choice(eligible_rooms).id
 
@@ -215,7 +223,7 @@ class GeneticScheduler:
                         gene.start_time, other_gene.start_time = other_gene.start_time, gene.start_time
 
                 elif mutation_type == 'professor':
-                    eligible_professors = [p for p in self.professors if gene.subject_id in p.subjects]
+                    eligible_professors = [p for p in self.professors if gene.subject_id in p.subjects and self.section_dict[gene.section_id].course in p.course]
                     if eligible_professors:
                         gene.professor_id = random.choice(eligible_professors).id
 
@@ -293,8 +301,12 @@ class GeneticScheduler:
         session_template = subject.sessions[gene.session_number - 1]
 
         # Get eligible professors and rooms
-        eligible_professors = [p.id for p in self.professors if gene.subject_id in p.subjects]
-        eligible_rooms = [r.id for r in self.rooms if r.room_type == session_template.session_type]
+        eligible_professors = [p.id for p in self.professors if gene.subject_id in p.subjects and self.section_dict[gene.section_id].course in p.course]
+
+        if self.subject_dict[gene.subject_id].requires_room:
+            eligible_rooms = [r.id for r in self.rooms if r.room_type == session_template.session_type]
+        else:
+            eligible_rooms = []
 
         # Try different combinations (limited attempts to avoid infinite loops)
         for attempt in range(50):

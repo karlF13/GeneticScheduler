@@ -43,6 +43,7 @@ class Subject:
     course: List[str]
     # name: str                   # Full name of the subject
     sessions: List[SessionTemplate] # Session requirements for the subject
+    requires_room: bool
 
 @dataclass
 class Section:
