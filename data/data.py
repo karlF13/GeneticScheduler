@@ -2,54 +2,53 @@ from models.resources import Room, Professor, Subject, Section, SessionType, Ses
 
 def create_sample_data():
     rooms = [
-        # #LECTURE ROOM
-        # Room("431", 50, SessionType.LECTURE),
-        # Room("410", 50, SessionType.LECTURE),
-        # Room("407", 50, SessionType.LECTURE),
-        # Room("409", 50, SessionType.LECTURE),
+        #LECTURE ROOM
+        Room("431", 50, SessionType.LECTURE),
+        Room("410", 50, SessionType.LECTURE),
+        Room("407", 50, SessionType.LECTURE),
+        Room("409", 50, SessionType.LECTURE),
+        Room("433", 50, SessionType.LECTURE),
+        Room("435", 50, SessionType.LECTURE),
         #
         # #COMLAB ROOM
-        # Room("501", 50, SessionType.LAB),
-        # Room("502", 50, SessionType.LAB),
-        # Room("503", 50, SessionType.LAB),
-        # Room("504", 50, SessionType.LAB),
-        # Room("505", 50, SessionType.LAB),
-        # Room("537", 50, SessionType.LAB),
+        Room("501", 50, SessionType.LAB),
+        Room("502", 50, SessionType.LAB),
+        Room("503", 50, SessionType.LAB),
+        Room("504", 50, SessionType.LAB),
+        Room("505", 50, SessionType.LAB),
+        Room("537", 50, SessionType.LAB),
         #
-        # #ONLINE
-        # Room("VR2", 50, SessionType.ONLINE),
-        # Room("VR3", 50, SessionType.ONLINE),
-        # Room("VR4", 50, SessionType.ONLINE),
-        # Room("VR5", 50, SessionType.ONLINE),
-        # Room("VR6", 50, SessionType.ONLINE),
-        # Room("VR7", 50, SessionType.ONLINE),
-        # Room("VR8", 50, SessionType.ONLINE),
-
         # #HARDWARE LAB ROOM
         # Room("534", 50, SessionType.HARDWARE_LAB),
         #
         # #extra
         # Room("423", 50, SessionType.LECTURE),
 
-        Room("431", 50, SessionType.LECTURE),
-        Room("505", 50, SessionType.LAB),
-        Room("432", 50, SessionType.LECTURE),
+        # Room("431", 50, SessionType.LECTURE),
+        # Room("505", 50, SessionType.LAB),
+        # Room("506", 50, SessionType.LAB),
+        # Room("432", 50, SessionType.LECTURE),
 
-        # Room("433", "Lecture Room2", 50, SessionType.LECTURE),
-        Room("Hardware Lab", 50, SessionType.HARDWARE_LAB)
+
+        # Room("Hardware Lab1", 50, SessionType.HARDWARE_LAB),
+        Room("Hardware Lab2", 50, SessionType.HARDWARE_LAB),
+
+        Room("PE ROOM1", 50, SessionType.PHYS_LAB),
+        # Room("PE ROOM2", 50, SessionType.PHYS_LAB),
+        # Room("PE ROOM3", 50, SessionType.PHYS_LAB),
+        # Room("PE ROOM4", 50, SessionType.PHYS_LAB),
     ]
     professors = [
         Professor("J. BRAVO", ["CS"], ["CCDISTR1", "CTFDMBSL", "CCQUAMET"]),
         Professor("E. RAMIREZ", ["CS"], ["CCOBJPGL", "CCALCOMP", "CCINTHCI"]),
         Professor("S. REBUTOC", ["CS"], ["CCPHYS2L"]),
-        Professor("M. ZUNIGA", ["CS"], ["CTBASNTL"]),
+        Professor("M. ZUNIGA", ["CS", "IT"], ["CTBASNTL"]),
         Professor("J. SACDALAN", ["IT"], ["CCOBJPGL", "CTAPROJ1"]),
         Professor("M. GALO", ["IT"], ["CCOBJPGL"]),
         Professor("A. VICENTE", ["IT"], ["CCDISTR1"]),
-        Professor("M. REYES", ["IT"], ["QUAMET"]),
+        Professor("M. REYES", ["IT"], ["CCQUAMET"]),
         Professor("R. GALAPON", ["IT"], ["CTBASNTL", "CCINTHCI"]),
         Professor("A. CAMACHO", ["IT"], ["CTBASNTL", "CCINTHCI"]),
-        Professor("E. ZUNIGA", ["IT"], ["CTBASNTL"]),
         Professor("S. LUMBOG", ["IT"], ["CTFDMBSL"]),
         Professor("F. ATIENZA", ["IT"], ["CTFDMBSL"]),
         Professor("R. VIADO", ["IT"], ["CTWBDEVL", "CTADWEBL"]),
@@ -76,6 +75,16 @@ def create_sample_data():
         Professor("K. NOGA", ["CS", "IT"], ["GENAT01R"]),
         Professor("D. ABUTON", ["CS", "IT"], ["GENAT01R"]),
         Professor("E. PUNZALAN", ["CS", "IT"], ["GENAT01R"]),
+
+
+        Professor("N. UZUMAKI", ["CS", "IT"], ["MNSTP02X"]),
+        Professor("U. SASUKE", ["CS", "IT"], ["MNSTP02X"]),
+        Professor("S. TONY", ["CS", "IT"], ["MNSTP02X"]),
+        Professor("U. ", ["CS", "IT"], ["MNSTP02X"]),
+        Professor("H. KAKASHI", ["CS", "IT"], ["MCFIT03X"]),
+        Professor("H. SAKURA", ["CS", "IT"], ["MCFIT03X"]),
+        Professor("H. asdas", ["CS", "IT"], ["MCFIT03X"]),
+        Professor("H. erger", ["CS", "IT"], ["MCFIT03X"]),
     ]
     subjects = [
         Subject("GEETH01X", ["CS", "IT"], [
@@ -147,8 +156,8 @@ def create_sample_data():
     ]
 
     sections = [
-        # #CS
-        #
+        #CS
+
         # #1st year
         # Section("COM241","CS",
         #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
@@ -157,13 +166,14 @@ def create_sample_data():
 
         #2nd year
         Section("COM231" , "CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "GEETH01X"], 45),
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
         Section("COM232","CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "GEETH01X"], 45),
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
 
         # #3rd year
         # Section("COM221", "CS",
         #         ["CCINTHCI", "CTAPDEVL"], 45),
+
         # #IT
         #
         # #1st year
@@ -173,7 +183,7 @@ def create_sample_data():
         #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
         # Section("INF243", "IT",
         #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        #
+
         # #2nd year
         # Section("INF231",  "IT",
         #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
