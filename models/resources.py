@@ -1,7 +1,8 @@
 # models/resources.py
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import List, Optional
+
 
 # Enumeration for types of sessions that can be scheduled
 class SessionType(Enum):
@@ -30,6 +31,7 @@ class Room:
     id: str                     # Unique room ID (e.g., "431")
     capacity: int               # Maximum number of students the room can accommodate
     room_type: SessionType      # Type of room (must match the session type)
+    preferred_courses: Optional[List[str]] = None
 
 @dataclass
 class Professor:
