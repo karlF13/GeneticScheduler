@@ -14,7 +14,7 @@ if __name__ == "__main__":
         population_size=150,
         mutation_rate=0.03,
         crossover_rate=0.8,
-        generations=5000
+        generations=20000
     )
 
     print(f"Total sessions to schedule: {scheduler.genome_length}")

@@ -52,38 +52,72 @@ class GeneticScheduler:
         genes = []
         conflict_tracker = ConflictTracker()
         professor_assignments = {}  # Track (section_id, subject_id) -> professor_id
+        room_usage = {r.id: 0 for r in self.rooms}  # Track room assignments
 
-        # Collect and sort sessions
+        # Collect and prioritize sessions
         sessions_to_schedule = []
         for section in self.sections:
             for subject_id in section.subjects:
                 subject = self.subject_dict[subject_id]
                 for session_template in subject.sessions:
-                    sessions_to_schedule.append((section, subject_id, session_template))
+                    # Calculate priority score (duration + subject importance)
+                    priority = (
+                            session_template.duration_hours * 10 +  # Longer sessions first
+                            (2 if subject.requires_room else 1)  # Room-required subjects get priority
+                    )
+                    sessions_to_schedule.append((priority, section, subject_id, session_template))
 
-        sessions_to_schedule.sort(key=lambda x: x[2].duration_hours, reverse=True)
+        # Sort by priority (highest first)
+        sessions_to_schedule.sort(key=lambda x: x[0], reverse=True)
 
-        for section, subject_id, session_template in sessions_to_schedule:
-            gene = self._create_conflict_free_gene(
-                section, subject_id, session_template, conflict_tracker
-            )
+        for _, section, subject_id, session_template in sessions_to_schedule:
+            # Get eligible rooms sorted by current usage (least used first)
+            eligible_rooms = []
+            if self.subject_dict[subject_id].requires_room:
+                eligible_rooms = sorted(
+                    [r for r in self.rooms if r.room_type == session_template.session_type],
+                    key=lambda r: room_usage[r.id]
+                )
+
+            # Try to create conflict-free gene with preferred room
+            gene = None
+            for room in eligible_rooms[:3]:  # Try top 3 least used rooms
+                temp_gene = self._create_conflict_free_gene(
+                    section, subject_id, session_template,
+                    conflict_tracker,
+                    preferred_room=room
+                )
+                if temp_gene:
+                    gene = temp_gene
+                    room_usage[room.id] += 1
+                    break
+
+            if not gene:  # Fallback to random room assignment
+                gene = self._create_conflict_free_gene(
+                    section, subject_id, session_template,
+                    conflict_tracker
+                )
+                if gene and gene.room_id:
+                    room_usage[gene.room_id] += 1
+
+            if not gene:  # Final fallback with professor consistency
+                gene = self._create_random_gene(
+                    section, subject_id, session_template,
+                    professor_assignments
+                )
+                if gene and gene.room_id:
+                    room_usage[gene.room_id] += 1
+
             if gene:
                 genes.append(gene)
                 conflict_tracker.add_gene(gene)
                 professor_assignments[(section.id, subject_id)] = gene.professor_id
-            else:
-                # Fallback with professor consistency
-                gene = self._create_random_gene(
-                    section, subject_id, session_template, professor_assignments
-                )
-                genes.append(gene)
-                conflict_tracker.add_gene(gene)
 
         return Chromosome(genes)
 
     def _create_conflict_free_gene(self, section: Section, subject_id: str,
                                    session_template: SessionTemplate,
-                                   conflict_tracker: ConflictTracker) -> Optional[Gene]:
+                                   conflict_tracker: ConflictTracker, preferred_room = None) -> Optional[Gene]:
         """Try to create a gene without conflicts with professor consistency"""
         # Check for existing professor assignment
         existing_prof = conflict_tracker.get_assigned_professor(section.id, subject_id)
@@ -100,10 +134,13 @@ class GeneticScheduler:
         if not eligible_professors:
             return None
 
-        # Get eligible rooms
+        # Room selection
         if self.subject_dict[subject_id].requires_room:
-            eligible_rooms = [r for r in self.rooms
-                              if r.room_type == session_template.session_type]
+            if preferred_room:
+                eligible_rooms = [preferred_room]
+            else:
+                eligible_rooms = [r for r in self.rooms
+                                  if r.room_type == session_template.session_type]
         else:
             eligible_rooms = []
 

@@ -9,6 +9,13 @@ def create_sample_data():
         Room("409", 50, SessionType.LECTURE),
         Room("433", 50, SessionType.LECTURE),
         Room("435", 50, SessionType.LECTURE),
+        Room("401", 50, SessionType.LECTURE),
+        Room("402", 50, SessionType.LECTURE),
+        Room("403", 50, SessionType.LECTURE),
+        Room("404", 50, SessionType.LECTURE),
+        Room("405", 50, SessionType.LECTURE),
+        Room("406", 50, SessionType.LECTURE),
+        Room("407", 50, SessionType.LECTURE),
         #
         # #COMLAB ROOM
         Room("501", 50, SessionType.LAB),
@@ -30,13 +37,13 @@ def create_sample_data():
         # Room("432", 50, SessionType.LECTURE),
 
 
-        # Room("Hardware Lab1", 50, SessionType.HARDWARE_LAB),
+        Room("Hardware Lab1", 50, SessionType.HARDWARE_LAB),
         Room("Hardware Lab2", 50, SessionType.HARDWARE_LAB),
 
         Room("PE ROOM1", 50, SessionType.PHYS_LAB),
-        # Room("PE ROOM2", 50, SessionType.PHYS_LAB),
-        # Room("PE ROOM3", 50, SessionType.PHYS_LAB),
-        # Room("PE ROOM4", 50, SessionType.PHYS_LAB),
+        Room("PE ROOM2", 50, SessionType.PHYS_LAB),
+        Room("PE ROOM3", 50, SessionType.PHYS_LAB),
+        Room("PE ROOM4", 50, SessionType.PHYS_LAB),
     ]
     professors = [
         Professor("J. BRAVO", ["CS"], ["CCDISTR1", "CTFDMBSL", "CCQUAMET"]),
@@ -158,11 +165,11 @@ def create_sample_data():
     sections = [
         #CS
 
-        # #1st year
-        # Section("COM241","CS",
-        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
-        # Section("COM242","CS",
-        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        #1st year
+        Section("COM241","CS",
+                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        Section("COM242","CS",
+                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
 
         #2nd year
         Section("COM231" , "CS",
@@ -170,9 +177,9 @@ def create_sample_data():
         Section("COM232","CS",
                 ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
 
-        # #3rd year
-        # Section("COM221", "CS",
-        #         ["CCINTHCI", "CTAPDEVL"], 45),
+        #3rd year
+        Section("COM221", "CS",
+                ["CCINTHCI", "CTAPDEVL"], 45),
 
         # #IT
         #
@@ -183,7 +190,7 @@ def create_sample_data():
         #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
         # Section("INF243", "IT",
         #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-
+        #
         # #2nd year
         # Section("INF231",  "IT",
         #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
