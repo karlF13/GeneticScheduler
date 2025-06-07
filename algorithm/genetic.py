@@ -1,4 +1,5 @@
 import random
+from collections import defaultdict
 from typing import List, Optional, Tuple, Dict
 
 from models.resources import Room, Professor, Subject, Section, SessionTemplate, Day
@@ -324,7 +325,14 @@ class GeneticScheduler:
                     repaired_genes.append(repaired_gene)
                     conflict_tracker.add_gene(repaired_gene)
 
-        return Chromosome(repaired_genes)
+        # Create temporary chromosome for further repairs
+        temp_chromosome = Chromosome(repaired_genes)
+
+        # Apply additional repairs
+        temp_chromosome = self.repair_subject_room(temp_chromosome)
+        temp_chromosome = self.repair_professor_breaks(temp_chromosome)
+
+        return temp_chromosome
 
     def _quick_repair(self, gene: Gene, conflict_tracker: ConflictTracker) -> Optional[Gene]:
         """Fast repair with limited attempts"""
@@ -360,6 +368,97 @@ class GeneticScheduler:
                 return candidate
 
         return None
+
+    def repair_subject_room(self, chromosome: Chromosome) -> Chromosome:
+        """
+        Ensures sessions of the same subject (for same section/session_type)
+        are scheduled in the same room when possible.
+        """
+        # Group genes by (section_id, subject_id, session_type)
+        subject_groups = defaultdict(list)
+        for gene in chromosome.genes:
+            key = (gene.section_id, gene.subject_id, gene.session_type)
+            subject_groups[key].append(gene)
+
+        # Process each subject group
+        for key, genes in subject_groups.items():
+            if len(genes) < 2:
+                continue  # Need at least 2 sessions to have room conflicts
+
+            # Find the most commonly used valid room in this group
+            room_counter = defaultdict(int)
+            for gene in genes:
+                if gene.room_id:
+                    room_counter[gene.room_id] += 1
+
+            if not room_counter:
+                continue  # No rooms assigned to any session
+
+            most_common_room = max(room_counter.items(), key=lambda x: x[1])[0]
+
+            # Get all eligible rooms for this session type
+            session_type = genes[0].session_type
+            eligible_rooms = [r.id for r in self._get_eligible_rooms_fast(session_type)]
+
+            # Only proceed if most common room is actually eligible
+            if most_common_room not in eligible_rooms:
+                continue
+
+            # Assign all sessions to the most common room
+            for gene in genes:
+                if gene.room_id != most_common_room:
+                    gene.room_id = most_common_room
+
+        return chromosome
+
+    def repair_professor_breaks(self, chromosome: Chromosome) -> Chromosome:
+        """
+        Ensures professors have reasonable breaks between consecutive classes
+        by adjusting session times when possible.
+        """
+        # Group genes by professor and day
+        prof_schedules = defaultdict(lambda: defaultdict(list))
+        for gene in chromosome.genes:
+            prof_schedules[gene.professor_id][gene.day].append(gene)
+
+        min_break = 0.5  # Minimum 30-minute break between classes
+
+        for prof_id, days_schedule in prof_schedules.items():
+            for day, sessions in days_schedule.items():
+                if len(sessions) < 2:
+                    continue
+
+                # Sort sessions by start time
+                sessions.sort(key=lambda x: x.start_time)
+
+                # Check consecutive sessions
+                for i in range(len(sessions) - 1):
+                    current = sessions[i]
+                    next_session = sessions[i + 1]
+
+                    gap = next_session.start_time - current.end_time
+
+                    if gap < min_break:
+                        # Try to fix by moving next session later
+                        required_start = current.end_time + min_break
+                        max_start = 21.0 - next_session.duration
+
+                        if required_start <= max_start:
+                            next_session.start_time = required_start
+                        else:
+                            # If can't move later, try moving current earlier
+                            required_start = next_session.start_time - current.duration - min_break
+                            if required_start >= 7.0:
+                                current.start_time = required_start
+                            else:
+                                # If neither works, swap days with a random gene
+                                other_genes = [g for g in chromosome.genes
+                                               if g.day != day and g.professor_id != prof_id]
+                                if other_genes:
+                                    swap_gene = random.choice(other_genes)
+                                    current.day, swap_gene.day = swap_gene.day, current.day
+
+        return chromosome
 
     def evolve(self) -> Chromosome:
         """Optimized evolution loop"""

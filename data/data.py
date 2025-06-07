@@ -174,20 +174,20 @@ def create_sample_data():
         # CS
         #
         # 1st year
-        # Section("COM241","CS",
-        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
-        # Section("COM242","CS",
-        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
-        #
-        # #2nd year
-        # Section("COM231" , "CS",
-        #         ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
-        # Section("COM232","CS",
-        #         ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
-        #
-        # #3rd year
-        # Section("COM221", "CS",
-        #         ["CCINTHCI", "CTAPDEVL"], 45),
+        Section("COM241","CS",
+                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        Section("COM242","CS",
+                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+
+        #2nd year
+        Section("COM231" , "CS",
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+        Section("COM232","CS",
+                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+
+        #3rd year
+        Section("COM221", "CS",
+                ["CCINTHCI", "CTAPDEVL"], 45),
 
         #IT
 
