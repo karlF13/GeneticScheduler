@@ -42,13 +42,13 @@ class Chromosome:
         penalty += 50 * self.check_subject_spacing_violations()
 
         # Sessions of the same subject should preferably be scheduled in the same rooms.
-        penalty +=10 * self._check_subject_room()
+        # penalty +=10 * self._check_subject_room()
 
         # Subjects should be evenly distributed throughout the week.
         penalty += 30 * self.check_subject_distribution()
 
         # Professor teaching schedules should be arranged to prevent consecutive lessons without breaks.
-        penalty += 10 * self._check_professor_breaks()
+        # penalty += 10 * self._check_professor_breaks()
 
         # Perfect fitness is 1.0
         self.fitness = 1000.0 / (1000.0 + penalty)

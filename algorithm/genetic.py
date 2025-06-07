@@ -32,78 +32,99 @@ class GeneticScheduler:
         self.room_dict = {r.id: r for r in rooms}
         self.section_dict = {sc.id: sc for sc in sections}
 
-        # Valid time slots hahah di ko pa sure kasi kung pano
-        # self.valid_time_slots = [7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5,
-        #                          13.0, 13.5, 14.0, 14.5, 15.0, 15.5, 16.0, 16.5, 17.0, 17.5, 18.0, 18.5, 19.0]
+        self.valid_time_slots = [7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0]
 
-        self.valid_time_slots = [7.0, 8.0, 9.0, 10.0, 11.0 ,12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0]
+        # Pre-compute valid start times for each duration
+        self.valid_start_times = {}
+        for duration in [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]:
+            valid_starts = []
+            for start_time in self.valid_time_slots:
+                end_time = start_time + duration
+                if end_time <= 19.0 and not (start_time < 13.0 and end_time > 12.0):
+                    valid_starts.append(start_time)
+            self.valid_start_times[duration] = valid_starts
 
-        self.genome_length = self._calculate_genome_length()
+        # Pre-compute professor-subject mappings
+        self.professor_subjects = {}
+        for prof in professors:
+            for subject_id in prof.subjects:
+                if subject_id not in self.professor_subjects:
+                    self.professor_subjects[subject_id] = []
+                self.professor_subjects[subject_id].append(prof)
 
-    def _calculate_genome_length(self) -> int:
-        total_sessions = 0
-        for section in self.sections:
+        # Pre-compute room-type mappings
+        self.room_types = {}
+        for room in rooms:
+            if room.room_type not in self.room_types:
+                self.room_types[room.room_type] = []
+            self.room_types[room.room_type].append(room)
+
+        # Pre-compute sessions to schedule
+        self.sessions_to_schedule = []
+        for section in sections:
             for subject_id in section.subjects:
                 subject = self.subject_dict[subject_id]
-                total_sessions += len(subject.sessions)
-        return total_sessions
+                for session_template in subject.sessions:
+                    self.sessions_to_schedule.append((section, subject_id, session_template))
+
+        self.genome_length = len(self.sessions_to_schedule)
+
+    def _get_eligible_professors_fast(self, subject_id: str, course: str) -> List[Professor]:
+        """Fast professor lookup using pre-computed mappings"""
+        if subject_id not in self.professor_subjects:
+            return []
+        return [p for p in self.professor_subjects[subject_id] if course in p.course]
+
+    def _get_eligible_rooms_fast(self, session_type: str) -> List[Room]:
+        """Fast room lookup using pre-computed mappings"""
+        return self.room_types.get(session_type, [])
 
     def create_smart_chromosome(self) -> Chromosome:
         genes = []
         conflict_tracker = ConflictTracker()
-        professor_assignments = {}  # Track (section_id, subject_id) -> professor_id
-        room_usage = {r.id: 0 for r in self.rooms}  # Track room assignments
+        professor_assignments = {}
+        room_usage = {r.id: 0 for r in self.rooms}
 
-        # Collect and prioritize sessions
-        sessions_to_schedule = []
-        for section in self.sections:
-            for subject_id in section.subjects:
-                subject = self.subject_dict[subject_id]
-                for session_template in subject.sessions:
-                    # Calculate priority score (duration + subject importance)
-                    priority = (
-                            session_template.duration_hours * 10 +  # Longer sessions first
-                            (2 if subject.requires_room else 1)  # Room-required subjects get priority
-                    )
-                    sessions_to_schedule.append((priority, section, subject_id, session_template))
+        # Sort sessions by priority once
+        sessions_sorted = sorted(
+            self.sessions_to_schedule,
+            key=lambda x: (
+                    x[2].duration_hours * 10 +
+                    (2 if self.subject_dict[x[1]].requires_room else 1)
+            ),
+            reverse=True
+        )
 
-        # Sort by priority (highest first)
-        sessions_to_schedule.sort(key=lambda x: x[0], reverse=True)
-
-        for _, section, subject_id, session_template in sessions_to_schedule:
-            # Get eligible rooms sorted by current usage (least used first)
+        for section, subject_id, session_template in sessions_sorted:
+            # Get eligible rooms sorted by usage
             eligible_rooms = []
             if self.subject_dict[subject_id].requires_room:
                 eligible_rooms = sorted(
-                    [r for r in self.rooms if r.room_type == session_template.session_type],
+                    self._get_eligible_rooms_fast(session_template.session_type),
                     key=lambda r: room_usage[r.id]
                 )
 
-            # Try to create conflict-free gene with preferred room
+            # Try conflict-free creation with top rooms
             gene = None
-            for room in eligible_rooms[:3]:  # Try top 3 least used rooms
-                temp_gene = self._create_conflict_free_gene(
+            for room in eligible_rooms[:3]:
+                gene = self._create_conflict_free_gene_fast(
                     section, subject_id, session_template,
-                    conflict_tracker,
-                    preferred_room=room
+                    conflict_tracker, room
                 )
-                if temp_gene:
-                    gene = temp_gene
+                if gene:
                     room_usage[room.id] += 1
                     break
 
-            if not gene:  # Fallback to random room assignment
-                gene = self._create_conflict_free_gene(
-                    section, subject_id, session_template,
-                    conflict_tracker
+            if not gene:
+                gene = self._create_conflict_free_gene_fast(
+                    section, subject_id, session_template, conflict_tracker
                 )
                 if gene and gene.room_id:
                     room_usage[gene.room_id] += 1
 
-            if not gene:  # Final fallback with professor consistency
-                gene = self._create_random_gene(
-                    section, subject_id, session_template,
-                    professor_assignments
+            if not gene:
+                gene = self._create_random_gene_fast(
+                    section, subject_id, session_template, professor_assignments
                 )
                 if gene and gene.room_id:
                     room_usage[gene.room_id] += 1
@@ -115,55 +136,38 @@ class GeneticScheduler:
 
         return Chromosome(genes)
 
-    def _create_conflict_free_gene(self, section: Section, subject_id: str,
-                                   session_template: SessionTemplate,
-                                   conflict_tracker: ConflictTracker, preferred_room = None) -> Optional[Gene]:
-        """Try to create a gene without conflicts with professor consistency"""
-        # Check for existing professor assignment
+    def _create_conflict_free_gene_fast(self, section: Section, subject_id: str,
+                                        session_template: SessionTemplate,
+                                        conflict_tracker: ConflictTracker,
+                                        preferred_room: Room = None) -> Optional[Gene]:
+        """Optimized conflict-free gene creation"""
         existing_prof = conflict_tracker.get_assigned_professor(section.id, subject_id)
 
-        # Get eligible professors (either the assigned one or all eligible)
         if existing_prof:
-            eligible_professors = [p for p in self.professors
-                                   if p.id == existing_prof]
+            eligible_professors = [p for p in self.professors if p.id == existing_prof]
         else:
-            eligible_professors = [p for p in self.professors
-                                   if subject_id in p.subjects
-                                   and section.course in p.course]
+            eligible_professors = self._get_eligible_professors_fast(subject_id, section.course)
 
         if not eligible_professors:
             return None
 
         # Room selection
         if self.subject_dict[subject_id].requires_room:
-            if preferred_room:
-                eligible_rooms = [preferred_room]
-            else:
-                eligible_rooms = [r for r in self.rooms
-                                  if r.room_type == session_template.session_type]
+            eligible_rooms = [preferred_room] if preferred_room else self._get_eligible_rooms_fast(
+                session_template.session_type)
         else:
             eligible_rooms = []
 
-        # Try different combinations
-        attempts = 0
-        max_attempts = 100
+        # Use pre-computed valid start times
+        valid_starts = self.valid_start_times.get(session_template.duration_hours, [])
+        if not valid_starts:
+            return None
 
-        while attempts < max_attempts:
+        # Limit attempts for speed
+        for _ in range(50):  # Reduced from 100
             professor = random.choice(eligible_professors)
             room_id = random.choice(eligible_rooms).id if eligible_rooms else None
             day = random.choice(list(Day))
-
-            # Find valid start times for this duration
-            valid_starts = []
-            for start_time in self.valid_time_slots:
-                end_time = start_time + session_template.duration_hours
-                if end_time <= 19.0 and not (start_time < 13.0 and end_time > 12.0):
-                    valid_starts.append(start_time)
-
-            if not valid_starts:
-                attempts += 1
-                continue
-
             start_time = random.choice(valid_starts)
 
             gene = Gene(
@@ -181,36 +185,26 @@ class GeneticScheduler:
             if conflict_tracker.is_available(gene):
                 return gene
 
-            attempts += 1
-
         return None
 
-    def _create_random_gene(self, section: Section, subject_id: str,
-                            session_template: SessionTemplate,
-                            existing_assignments: Dict[Tuple[str, str], str] = None) -> Gene:
-        """Create random gene with professor consistency"""
-        # Handle professor assignments
+    def _create_random_gene_fast(self, section: Section, subject_id: str,
+                                 session_template: SessionTemplate,
+                                 existing_assignments: Dict[Tuple[str, str], str] = None) -> Gene:
+        """Optimized random gene creation"""
         if existing_assignments is None:
             existing_assignments = {}
 
         key = (section.id, subject_id)
         if key in existing_assignments:
-            # Use existing professor
-            professor = next(p for p in self.professors
-                             if p.id == existing_assignments[key])
+            professor = self.professor_dict[existing_assignments[key]]
         else:
-            # Choose new professor
-            eligible_professors = [p for p in self.professors
-                                   if subject_id in p.subjects
-                                   and section.course in p.course]
+            eligible_professors = self._get_eligible_professors_fast(subject_id, section.course)
             professor = random.choice(eligible_professors)
             existing_assignments[key] = professor.id
 
-        # Handle room assignment
         room_id = None
         if self.subject_dict[subject_id].requires_room:
-            eligible_rooms = [r for r in self.rooms
-                              if r.room_type == session_template.session_type]
+            eligible_rooms = self._get_eligible_rooms_fast(session_template.session_type)
             if eligible_rooms:
                 room_id = random.choice(eligible_rooms).id
 
@@ -234,20 +228,14 @@ class GeneticScheduler:
             return self.create_smart_chromosome()
 
         genes = []
-        for section in self.sections:
-            for subject_id in section.subjects:
-                subject = self.subject_dict[subject_id]
-                for session_template in subject.sessions:
-                    gene = self._create_random_gene(section, subject_id, session_template)
-                    genes.append(gene)
+        for section, subject_id, session_template in self.sessions_to_schedule:
+            gene = self._create_random_gene_fast(section, subject_id, session_template)
+            genes.append(gene)
 
         return Chromosome(genes)
 
     def initialize_population(self) -> List[Chromosome]:
         population = []
-
-        # Create 30% smart chromosomes, 70% random
-        # too random, harder to evolve; too perfect, might get stuck in local optima
         smart_count = int(0.3 * self.population_size)
 
         for _ in range(smart_count):
@@ -259,36 +247,31 @@ class GeneticScheduler:
         return population
 
     def smart_mutate(self, chromosome: Chromosome) -> Chromosome:
-        """Enhanced mutation with swap operations"""
+        """Optimized mutation"""
         for i, gene in enumerate(chromosome.genes):
             if random.random() < self.mutation_rate:
                 mutation_type = random.choice(['professor', 'room', 'time', 'day', 'swap'])
 
                 if mutation_type == 'swap' and len(chromosome.genes) > 1:
-                    # Swap time slots with another gene
                     j = random.randint(0, len(chromosome.genes) - 1)
                     if i != j:
                         other_gene = chromosome.genes[j]
-                        # Swap timing info
                         gene.day, other_gene.day = other_gene.day, gene.day
                         gene.start_time, other_gene.start_time = other_gene.start_time, gene.start_time
 
                 elif mutation_type == 'professor':
-                    eligible_professors = [p for p in self.professors if gene.subject_id in p.subjects and self.section_dict[gene.section_id].course in p.course]
+                    eligible_professors = self._get_eligible_professors_fast(gene.subject_id,
+                                                                             self.section_dict[gene.section_id].course)
                     if eligible_professors:
                         gene.professor_id = random.choice(eligible_professors).id
 
                 elif mutation_type == 'room' and gene.room_id:
-                    subject = self.subject_dict[gene.subject_id]
-                    session = subject.sessions[gene.session_number - 1]
-                    eligible_rooms = [r for r in self.rooms if r.room_type == session.session_type]
+                    eligible_rooms = self._get_eligible_rooms_fast(gene.session_type)
                     if eligible_rooms:
                         gene.room_id = random.choice(eligible_rooms).id
 
                 elif mutation_type == 'time':
-                    valid_times = [t for t in self.valid_time_slots
-                                   if t + gene.duration <= 19.0 and
-                                   not (t < 13.0 and t + gene.duration > 12.0)]
+                    valid_times = self.valid_start_times.get(gene.duration, [])
                     if valid_times:
                         gene.start_time = random.choice(valid_times)
 
@@ -306,9 +289,9 @@ class GeneticScheduler:
         child1_genes = parent1.genes[:crossover_point] + parent2.genes[crossover_point:]
         child2_genes = parent2.genes[:crossover_point] + parent1.genes[crossover_point:]
 
-        # Repair conflicts in children
-        child1 = self._repair_chromosome(Chromosome(child1_genes))
-        child2 = self._repair_chromosome(Chromosome(child2_genes))
+        # Use faster repair
+        child1 = self._repair_chromosome_fast(Chromosome(child1_genes))
+        child2 = self._repair_chromosome_fast(Chromosome(child2_genes))
 
         return child1, child2
 
@@ -320,76 +303,46 @@ class GeneticScheduler:
         tournament = random.sample(population, tournament_size)
         return max(tournament, key=lambda x: x.fitness)
 
-    def _repair_chromosome(self, chromosome: Chromosome) -> Chromosome:
-        """Repair conflicts in a chromosome by reassigning conflicting genes"""
+    def _repair_chromosome_fast(self, chromosome: Chromosome) -> Chromosome:
+        """Faster chromosome repair with limited attempts"""
         conflict_tracker = ConflictTracker()
         repaired_genes = []
 
-        # Sort genes by priority (longer duration first, then by original fitness contribution)
-        sorted_genes = sorted(chromosome.genes, key=lambda g: g.duration, reverse=True)
+        # Sort once by priority
+        sorted_genes = sorted(chromosome.genes,
+                              key=lambda g: (g.duration, self._get_gene_priority(g)),
+                              reverse=True)
 
         for gene in sorted_genes:
             if conflict_tracker.is_available(gene):
-                # No conflict, keep as is
                 repaired_genes.append(gene)
                 conflict_tracker.add_gene(gene)
             else:
-                # Conflict detected, find new assignment
-                repaired_gene = self._find_alternative_assignment(gene, conflict_tracker)
+                # Try quick repair with limited attempts
+                repaired_gene = self._quick_repair(gene, conflict_tracker)
                 if repaired_gene:
                     repaired_genes.append(repaired_gene)
                     conflict_tracker.add_gene(repaired_gene)
-                else:
-                    # Fallback: use original gene (will be penalized in fitness)
-                    repaired_genes.append(gene)
 
         return Chromosome(repaired_genes)
 
-    def _find_alternative_assignment(self, gene: Gene,
-                                     conflict_tracker: ConflictTracker) -> Optional[Gene]:
-        """Find alternative assignment with professor consistency"""
-        # Check existing professor assignment
-        existing_prof = conflict_tracker.get_assigned_professor(
-            gene.section_id, gene.subject_id
-        )
+    def _quick_repair(self, gene: Gene, conflict_tracker: ConflictTracker) -> Optional[Gene]:
+        """Fast repair with limited attempts"""
+        eligible_professors = self._get_eligible_professors_fast(gene.subject_id,
+                                                                 self.section_dict[gene.section_id].course)
+        eligible_rooms = self._get_eligible_rooms_fast(gene.session_type) if self.subject_dict[
+            gene.subject_id].requires_room else []
+        valid_times = self.valid_start_times.get(gene.duration, [])
 
-        # Get eligible professors
-        if existing_prof:
-            eligible_professors = [p for p in self.professors
-                                   if p.id == existing_prof]
-        else:
-            eligible_professors = [p for p in self.professors
-                                   if gene.subject_id in p.subjects
-                                   and self.section_dict[gene.section_id].course in p.course]
-
-        if not eligible_professors:
-            return None
-
-        # Get eligible rooms
-        if self.subject_dict[gene.subject_id].requires_room:
-            eligible_rooms = [r for r in self.rooms
-                              if r.room_type == gene.session_type]
-        else:
-            eligible_rooms = []
-
-        # Try different combinations
-        for _ in range(50):  # Limited attempts
-            professor = random.choice(eligible_professors)
-            room_id = random.choice(eligible_rooms).id if eligible_rooms else None
-            day = random.choice(list(Day))
-
-            # Find valid time slots
-            valid_times = []
-            for start_time in self.valid_time_slots:
-                end_time = start_time + gene.duration
-                if (end_time <= 19.0 and
-                        not (start_time < 13.0 and end_time > 12.0)):
-                    valid_times.append(start_time)
-
-            if not valid_times:
+        # Try only 20 combinations for speed
+        for _ in range(20):
+            professor = random.choice(eligible_professors) if eligible_professors else None
+            if not professor:
                 continue
 
-            start_time = random.choice(valid_times)
+            room_id = random.choice(eligible_rooms).id if eligible_rooms else None
+            day = random.choice(list(Day))
+            start_time = random.choice(valid_times) if valid_times else random.choice(self.valid_time_slots)
 
             candidate = Gene(
                 section_id=gene.section_id,
@@ -409,7 +362,7 @@ class GeneticScheduler:
         return None
 
     def evolve(self) -> Chromosome:
-        """Main evolution loop with improved termination"""
+        """Optimized evolution loop"""
         population = self.initialize_population()
         best_fitness_history = []
         stagnation_counter = 0
@@ -425,25 +378,25 @@ class GeneticScheduler:
             best_fitness = population[0].fitness
             best_fitness_history.append(best_fitness)
 
-            # Check for early termination (perfect solution)
-            if best_fitness >= 0.99:  # Very high fitness
+            # Early termination for perfect solution
+            if best_fitness >= 0.99:
                 print(f"Perfect solution found at generation {generation}!")
                 break
 
-            # Check for stagnation
-            if len(best_fitness_history) > 50:
-                recent_improvement = max(best_fitness_history[-50:]) - min(best_fitness_history[-50:])
+            # Check stagnation with smaller window for faster detection
+            if len(best_fitness_history) > 30:  # Reduced from 50
+                recent_improvement = max(best_fitness_history[-30:]) - min(best_fitness_history[-30:])
                 if recent_improvement < 0.001:
                     stagnation_counter += 1
                 else:
                     stagnation_counter = 0
 
-                if stagnation_counter > 100:
+                if stagnation_counter > 50:  # Reduced from 100
                     print(f"Stopping due to stagnation at generation {generation}")
                     break
 
-            # Print progress
-            if generation % 100 == 0:
+            # Print progress less frequently
+            if generation % 200 == 0:  # Reduced from 100
                 conflicts = (population[0]._check_professor_conflicts() +
                              population[0]._check_room_conflicts() +
                              population[0]._check_section_conflicts())
@@ -474,3 +427,12 @@ class GeneticScheduler:
             chromosome.calculate_fitness(None)
 
         return max(population, key=lambda x: x.fitness)
+
+    def _get_gene_priority(self, gene: Gene) -> int:
+        """Fast priority calculation"""
+        priority = gene.duration * 10
+        if self.subject_dict[gene.subject_id].requires_room:
+            priority += 5
+        if gene.session_type == "lab":
+            priority += 3
+        return priority
