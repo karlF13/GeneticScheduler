@@ -9,6 +9,7 @@ class SessionType(Enum):
     LAB = "lab"                     # Computer lab session
     ONLINE = "ONLINE"               # Online session (no room)
     HARDWARE_LAB = "hardware lab"   # Hardware lab (hands-on classes)
+    PHYS_LAB = "phys_lab"
 
 class Day(Enum):
     MONDAY = 0
@@ -33,18 +34,20 @@ class Room:
 @dataclass
 class Professor:
     id: str                     # Unique professor ID (e.g., "P001")
-    name: str                   # Full name of the professor
+    course: List[str]
     subjects: List[str]         # List of subject IDs the professor is qualified to teach
 
 @dataclass
 class Subject:
     id: str                     # Unique subject ID (e.g., "CTFDMBSL")
-    name: str                   # Full name of the subject
+    course: List[str]
+    # name: str                   # Full name of the subject
     sessions: List[SessionTemplate] # Session requirements for the subject
 
 @dataclass
 class Section:
     id: str             # Unique section ID (e.g., "COM231")
+    course: str
     subjects: List[str] # List of subject IDs this section is enrolled in
     max_students: int   # Maximum number of students in this section
 

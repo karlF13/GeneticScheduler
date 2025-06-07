@@ -48,7 +48,7 @@ class Chromosome:
         penalty += 30 * self.check_subject_distribution()
 
         # Professor teaching schedules should be arranged to prevent consecutive lessons without breaks.
-        penalty += 50 * self._check_professor_breaks()
+        # penalty += 50 * self._check_professor_breaks()
 
         # Perfect fitness is 1.0
         self.fitness = 1000.0 / (1000.0 + penalty)

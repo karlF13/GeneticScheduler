@@ -2,6 +2,35 @@ from models.resources import Room, Professor, Subject, Section, SessionType, Ses
 
 def create_sample_data():
     rooms = [
+        # #LECTURE ROOM
+        # Room("431", 50, SessionType.LECTURE),
+        # Room("410", 50, SessionType.LECTURE),
+        # Room("407", 50, SessionType.LECTURE),
+        # Room("409", 50, SessionType.LECTURE),
+        #
+        # #COMLAB ROOM
+        # Room("501", 50, SessionType.LAB),
+        # Room("502", 50, SessionType.LAB),
+        # Room("503", 50, SessionType.LAB),
+        # Room("504", 50, SessionType.LAB),
+        # Room("505", 50, SessionType.LAB),
+        # Room("537", 50, SessionType.LAB),
+        #
+        # #ONLINE
+        # Room("VR2", 50, SessionType.ONLINE),
+        # Room("VR3", 50, SessionType.ONLINE),
+        # Room("VR4", 50, SessionType.ONLINE),
+        # Room("VR5", 50, SessionType.ONLINE),
+        # Room("VR6", 50, SessionType.ONLINE),
+        # Room("VR7", 50, SessionType.ONLINE),
+        # Room("VR8", 50, SessionType.ONLINE),
+
+        # #HARDWARE LAB ROOM
+        # Room("534", 50, SessionType.HARDWARE_LAB),
+        #
+        # #extra
+        # Room("423", 50, SessionType.LECTURE),
+
         Room("431", 50, SessionType.LECTURE),
         Room("505", 50, SessionType.LAB),
         Room("432", 50, SessionType.LECTURE),
@@ -10,39 +39,162 @@ def create_sample_data():
         Room("Hardware Lab", 50, SessionType.HARDWARE_LAB)
     ]
     professors = [
-        Professor("P001", "John Samuel Rebutoc", ["CCPHYS2L"]),
-        Professor("P002", "Jobert D. Bravo", ["CCQUAMET", "CTFDMBSL"]),
-        Professor("P003", "Emmanuel A. Ramirez", ["CCALCOMP"]),
-        Professor("P004", "Emmanuel P. Zuñiga", ["CTBASNTL"]),
+        Professor("J. BRAVO", ["CS"], ["CCDISTR1", "CTFDMBSL", "CCQUAMET"]),
+        Professor("E. RAMIREZ", ["CS"], ["CCOBJPGL", "CCALCOMP", "CCINTHCI"]),
+        Professor("S. REBUTOC", ["CS"], ["CCPHYS2L"]),
+        Professor("M. ZUNIGA", ["CS"], ["CTBASNTL"]),
+        Professor("J. SACDALAN", ["IT"], ["CCOBJPGL", "CTAPROJ1"]),
+        Professor("M. GALO", ["IT"], ["CCOBJPGL"]),
+        Professor("A. VICENTE", ["IT"], ["CCDISTR1"]),
+        Professor("M. REYES", ["IT"], ["QUAMET"]),
+        Professor("R. GALAPON", ["IT"], ["CTBASNTL", "CCINTHCI"]),
+        Professor("A. CAMACHO", ["IT"], ["CTBASNTL", "CCINTHCI"]),
+        Professor("E. ZUNIGA", ["IT"], ["CTBASNTL"]),
+        Professor("S. LUMBOG", ["IT"], ["CTFDMBSL"]),
+        Professor("F. ATIENZA", ["IT"], ["CTFDMBSL"]),
+        Professor("R. VIADO", ["IT"], ["CTWBDEVL", "CTADWEBL"]),
+        Professor("E. ALINO", ["IT"], ["CTWBDEVL", "CTAPROJ1"]),
+        Professor("L. TAVU", ["CS"], ["CTAPDEVL"]),
+        Professor("BUHAIN", ["IT"], ["CTAINASL"]),
+        Professor("C. TORRES", ["IT"], ["CTAINASL"]),
+        Professor("J. ABAO", ["IT"], ["CTAINASL"]),
+        Professor("M.J QUILITAN", ["CS", "IT"], ["GEETH01X"]),
+        Professor("JA LIBUNAO", ["CS", "IT"], ["GEETH01X"]),
+        Professor("N. UMPAR", ["CS", "IT"], ["GEETH01X"]),
+        Professor("D. URGELLES", ["CS", "IT"], ["GEETH01X"]),
+        Professor("E. LAGOS", ["CS", "IT"], ["GEETH01X", "GENAT01R"]),
+        Professor("E. NOLASCO", ["CS", "IT"], ["GEETH01X"]),
+        Professor("A. CABRERA", ["CS", "IT"], ["GEETH01X"]),
+        Professor("EJ LAYUG", ["CS", "IT"], ["GENAT01R"]),
+        Professor("D. CONDEZ", ["CS", "IT"], ["GENAT01R"]),
+        Professor("C. SANTIAGO", ["CS", "IT"], ["GENAT01R"]),
+        Professor("G. BAYRAN", ["CS", "IT"], ["GENAT01R"]),
+        Professor("C. LEGASPI", ["CS", "IT"], ["GENAT01R"]),
+        Professor("T. MAGSINO", ["CS", "IT"], ["GENAT01R"]),
+        Professor("BA ESTRADA", ["CS", "IT"], ["GENAT01R"]),
+        Professor("Z. PENUS", ["CS", "IT"], ["GENAT01R"]),
+        Professor("K. NOGA", ["CS", "IT"], ["GENAT01R"]),
+        Professor("D. ABUTON", ["CS", "IT"], ["GENAT01R"]),
+        Professor("E. PUNZALAN", ["CS", "IT"], ["GENAT01R"]),
     ]
     subjects = [
-        Subject("CCPHYS2L", "COLLEGE PHYSICS 2", [
-            SessionTemplate("CCPHYS2L", 1, SessionType.LECTURE, 4.0),
-            SessionTemplate("CCPHYS2L", 2, SessionType.LECTURE, 4.0)
+        Subject("GEETH01X", ["CS", "IT"], [
+            SessionTemplate("GEETH01X", 1, SessionType.ONLINE, 2),
+            SessionTemplate("GEETH01X", 2, SessionType.ONLINE, 2),
         ]),
-        Subject("CCQUAMET", "QUANTITATIVE METHODS", [
-            SessionTemplate("CCQUAMET", 1, SessionType.LECTURE, 2.0),
-            SessionTemplate("CCQUAMET", 2, SessionType.LECTURE, 2.0)
+        Subject("GENAT01R", ["CS", "IT"], [
+            SessionTemplate("GENAT01R", 1, SessionType.ONLINE, 2),
+            SessionTemplate("GENAT01R", 2, SessionType.ONLINE, 2),
         ]),
-        Subject("CTFDMBSL", "DATABASE SYSTEMS", [
-            SessionTemplate("CTFDMBSL", 1, SessionType.LECTURE, 2.67),
-            SessionTemplate("CTFDMBSL", 2, SessionType.LAB, 3.0)
+        Subject("MNSTP02X", ["CS", "IT"],[
+            SessionTemplate("MNSTP02X", 1, SessionType.ONLINE, 2),
+            SessionTemplate("MNSTP02X", 2, SessionType.ONLINE, 2),
         ]),
-        Subject("CCALCOMP", "ALGORITHMS AND COMPLEXITY", [
-            SessionTemplate("CCALCOMP", 1, SessionType.LECTURE, 2.0),
-            SessionTemplate("CCALCOMP", 2, SessionType.LECTURE, 2.0)
+        Subject("MCFIT03X", ["CS", "IT"],[
+            SessionTemplate("MCFIT03X", 1, SessionType.PHYS_LAB, 2.67),
         ]),
-        Subject("CTBASNTL", "BASIC NETWORKING", [
-            SessionTemplate("CTBASNTL", 1, SessionType.HARDWARE_LAB, 4.0),
-            SessionTemplate("CTBASNTL", 2, SessionType.HARDWARE_LAB, 2.67)
-        ])
+        Subject("CCDISTR1", ["CS", "IT"],[
+            SessionTemplate("CCDISTR1", 1, SessionType.LECTURE, 2),
+            SessionTemplate("CCDISTR1", 2, SessionType.LECTURE, 2),
+        ]),
+        Subject("CCOBJPGL", ["CS", "IT"],[
+            SessionTemplate("CCOBJPGL", 1, SessionType.LAB, 4),
+            SessionTemplate("CCOBJPGL", 2, SessionType.LECTURE, 2.67),
+        ]),
+        Subject("CCPHYS2L", ["CS", "IT"],[
+            SessionTemplate("CCPHYS2L", 1, SessionType.LECTURE, 4),
+            SessionTemplate("CCPHYS2L", 2, SessionType.LECTURE, 4),
+        ]),
+        Subject("CTBASNTL", ["CS", "IT"],[
+            SessionTemplate("CTBASNTL", 1, SessionType.HARDWARE_LAB, 4),
+            SessionTemplate("CTBASNTL", 2, SessionType.HARDWARE_LAB, 2.67),
+        ]),
+        Subject("CCALCOMP", ["CS"],[
+            SessionTemplate("CCALCOMP", 1, SessionType.LECTURE, 1),
+            SessionTemplate("CCALCOMP", 2, SessionType.LECTURE, 1),
+        ]),
+        Subject("CTFDMBSL", ["CS", "IT"],[
+            SessionTemplate("CTFDMBSL", 1, SessionType.LAB, 4),
+            SessionTemplate("CTFDMBSL", 2, SessionType.LECTURE, 2.67),
+        ]),
+        Subject("CCQUAMET", ["CS", "IT"],[
+            SessionTemplate("CCQUAMET", 1, SessionType.LECTURE, 2),
+            SessionTemplate("CCQUAMET", 2, SessionType.LECTURE, 2),
+        ]),
+        Subject("CCINTHCI", ["CS", "IT"],[
+            SessionTemplate("CCINTHCI", 1, SessionType.LAB, 4),
+        ]),
+        Subject("CTAPDEVL", ["CS"],[
+            SessionTemplate("CTAPDEVL", 1, SessionType.LAB, 4),
+            SessionTemplate("CTAPDEVL", 2, SessionType.LECTURE, 2.67),
+        ]),
+        Subject("CTWBDEVL", ["IT"], [
+            SessionTemplate("CTWBDEVL", 1, SessionType.LAB, 4),
+            SessionTemplate("CTWBDEVL", 2, SessionType.LECTURE, 2.67),
+        ]),
+        Subject("CTAPROJ1", ["IT"], [
+            SessionTemplate("CTAPROJ1", 1, SessionType.ONLINE, 2),
+            SessionTemplate("CTAPROJ1", 2, SessionType.ONLINE, 2),
+        ]),
+        Subject("CTAINASL", ["IT"],[
+            SessionTemplate("CTAINASL", 1, SessionType.LECTURE, 2.67),
+            SessionTemplate("CTAINASL", 2, SessionType.LAB, 4),
+        ]),
+        Subject("CTADWEBL",["IT"], [
+            SessionTemplate("CTADWEBL", 1, SessionType.LECTURE, 2.67),
+            SessionTemplate("CTADWEBL", 2, SessionType.LAB, 4),
+        ]),
     ]
 
     sections = [
-        Section("COM231",
+        # #CS
+        #
+        # #1st year
+        # Section("COM241","CS",
+        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        # Section("COM242","CS",
+        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+
+        #2nd year
+        Section("COM231" , "CS",
                 ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
-        Section("COM232",
+        Section("COM232","CS",
                 ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+
+        # #3rd year
+        # Section("COM221", "CS",
+        #         ["CCINTHCI", "CTAPDEVL"], 45),
+        # #IT
+        #
+        # #1st year
+        # Section("INF241",  "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF242",  "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF243", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        #
+        # #2nd year
+        # Section("INF231",  "IT",
+        #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
+        # Section("INF232", "IT",
+        #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
+        # Section("INF233", "IT",
+        #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
+        # Section("INF234", "IT",
+        #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
+        # Section("INF235", "IT",
+        #         ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
+        #
+        # # 3rd year
+        # Section("INF221", "IT",
+        #         ["CTAPROJ1", "CCINTHCI", "CTAINASL", "CTADWEBL"], 45),
+        # Section("INF222", "IT",
+        #         ["CTAPROJ1", "CCINTHCI", "CTAINASL", "CTADWEBL"], 45),
+        # Section("INF223", "IT",
+        #         ["CTAPROJ1", "CCINTHCI", "CTAINASL", "CTADWEBL"], 45),
+        # Section("INF224", "IT",
+        #         ["CTAPROJ1", "CCINTHCI", "CTAINASL", "CTADWEBL"], 45)
 
     ]
     return sections, subjects, professors, rooms

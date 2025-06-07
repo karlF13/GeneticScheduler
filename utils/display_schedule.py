@@ -50,5 +50,5 @@ def print_schedule(chromosome: Chromosome,
                 start_str = format_time(gene.start_time)
                 end_str = format_time(gene.end_time)
 
-                print(f"    {start_str} - {end_str} | {subject.name} (Session {gene.session_number}) | "
-                      f"Prof: {professor.name} | Room: {room_name}")
+                print(f"    {start_str} - {end_str} | {subject.id} (Session {gene.session_number}) | "
+                      f"Prof: {professor.id} | Room: {room_name}")
