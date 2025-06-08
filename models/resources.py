@@ -15,8 +15,10 @@ class SessionType(Enum):
 class Day(Enum):
     MONDAY = 0
     TUESDAY = 1
+    WEDNESDAY = 2
     THURSDAY = 3
     FRIDAY = 4
+    SATURDAY = 5
     #Wednesday skipped (no classes on wednesdays)
 
 @dataclass

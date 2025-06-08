@@ -22,10 +22,13 @@ def create_sample_data():
         Room("534", 50, SessionType.HARDWARE_LAB, ["IT", "CS"]),
     ]
     professors = [
+        #cs
         Professor("J. BRAVO", ["CS"], ["CCDISTR1", "CTFDMBSL", "CCQUAMET"]),
         Professor("E. RAMIREZ", ["CS"], ["CCOBJPGL", "CCALCOMP", "CCINTHCI"]),
         Professor("S. REBUTOC", ["CS"], ["CCPHYS2L"]),
         Professor("M. ZUNIGA", ["CS", "IT"], ["CTBASNTL"]),
+        Professor("L. TAVU", ["CS"], ["CTAPDEVL"]),
+
         Professor("J. SACDALAN", ["IT"], ["CCOBJPGL", "CTAPROJ1"]),
         Professor("M. GALO", ["IT"], ["CCOBJPGL"]),
         Professor("A. VICENTE", ["IT"], ["CCDISTR1"]),
@@ -36,10 +39,11 @@ def create_sample_data():
         Professor("F. ATIENZA", ["IT"], ["CTFDMBSL"]),
         Professor("R. VIADO", ["IT"], ["CTWBDEVL", "CTADWEBL"]),
         Professor("E. ALINO", ["IT"], ["CTWBDEVL", "CTAPROJ1"]),
-        Professor("L. TAVU", ["CS"], ["CTAPDEVL"]),
         Professor("BUHAIN", ["IT"], ["CTAINASL"]),
         Professor("C. TORRES", ["IT"], ["CTAINASL"]),
         Professor("J. ABAO", ["IT"], ["CTAINASL"]),
+
+        #GEN ED
         Professor("M.J QUILITAN", ["CS", "IT"], ["GEETH01X"]),
         Professor("JA LIBUNAO", ["CS", "IT"], ["GEETH01X"]),
         Professor("N. UMPAR", ["CS", "IT"], ["GEETH01X"]),
@@ -60,14 +64,14 @@ def create_sample_data():
         Professor("E. PUNZALAN", ["CS", "IT"], ["GENAT01R"]),
 
         # to be removed ~~~~~~~~~~~~~~~~~
-        Professor("N. UZUMAKI", ["CS", "IT"], ["MNSTP02X"]),
-        Professor("U. SASUKE", ["CS", "IT"], ["MNSTP02X"]),
-        Professor("S. TONY", ["CS", "IT"], ["MNSTP02X"]),
-        Professor("U. ", ["CS", "IT"], ["MNSTP02X"]),
-        Professor("H. KAKASHI", ["CS", "IT"], ["MCFIT03X"]),
-        Professor("H. SAKURA", ["CS", "IT"], ["MCFIT03X"]),
-        Professor("H. asdas", ["CS", "IT"], ["MCFIT03X"]),
-        Professor("H. erger", ["CS", "IT"], ["MCFIT03X"]),
+        # Professor("N. UZUMAKI", ["CS", "IT"], ["MNSTP02X"]),
+        # Professor("U. SASUKE", ["CS", "IT"], ["MNSTP02X"]),
+        # Professor("S. TONY", ["CS", "IT"], ["MNSTP02X"]),
+        # Professor("U. ", ["CS", "IT"], ["MNSTP02X"]),
+        # Professor("H. KAKASHI", ["CS", "IT"], ["MCFIT03X"]),
+        # Professor("H. SAKURA", ["CS", "IT"], ["MCFIT03X"]),
+        # Professor("H. asdas", ["CS", "IT"], ["MCFIT03X"]),
+        # Professor("H. erger", ["CS", "IT"], ["MCFIT03X"]),
     ]
     subjects = [
         Subject("GEETH01X", ["CS", "IT"], [
@@ -147,7 +151,7 @@ def create_sample_data():
         Section("COM242","CS",
                 ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
 
-        #2nd year
+        # 2nd year
         Section("COM231" , "CS",
                 ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
         Section("COM232","CS",
@@ -157,9 +161,9 @@ def create_sample_data():
         Section("COM221", "CS",
                 ["CCINTHCI", "CTAPDEVL"], 45),
 
-        # #IT
-        #
-        #1st year
+        #IT
+
+        # 1st year
         Section("INF241",  "IT",
                 ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
         Section("INF242",  "IT",
@@ -167,16 +171,16 @@ def create_sample_data():
         Section("INF243", "IT",
                 ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
 
-        Section("INF244", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF245", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF246", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF247", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF244", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF245", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF246", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF247", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
 
-        # #2nd year
+        #2nd year
         Section("INF231",  "IT",
                 ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
         Section("INF232", "IT",
@@ -188,7 +192,7 @@ def create_sample_data():
         Section("INF235", "IT",
                 ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
 
-        # # 3rd year
+        # 3rd year
         Section("INF221", "IT",
                 ["CTAPROJ1", "CCINTHCI", "CTAINASL", "CTADWEBL"], 45),
         Section("INF222", "IT",
