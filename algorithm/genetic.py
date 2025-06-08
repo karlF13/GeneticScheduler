@@ -729,7 +729,7 @@ class GeneticAlgorithm:
         return sorted_population[:self.elite_size]
 
     def evolve(self) -> Tuple[Chromosome, List[float]]:
-        """Main evolution loop with proper stagnation handling"""
+        """Main evolution loop with proper termination conditions"""
         print("Initializing conflict-aware population...")
         population = self.initialize_population()
 
@@ -739,40 +739,73 @@ class GeneticAlgorithm:
         best_fitness = 0.0
         generation_of_last_improvement = 0
 
+        # Termination tracking
+        generations_without_improvement = 0
+        max_generations_without_improvement = min(300, self.generations // 4)  # Adaptive based on total generations
+        fitness_improvement_threshold = 0.001  # Minimum improvement to consider significant
+
         for generation in range(self.generations):
             self.evaluate_population(population)
 
             current_best = max(population, key=lambda x: x.fitness)
             current_best_fitness = current_best.fitness
 
-            # Update best if we found a better solution
-            if current_best_fitness > best_fitness:
+            # Update best if we found a significantly better solution
+            if current_best_fitness > best_fitness + fitness_improvement_threshold:
                 best_fitness = current_best_fitness
                 best_chromosome = copy.deepcopy(current_best)
                 generation_of_last_improvement = generation
+                generations_without_improvement = 0
                 self.stagnation_counter = 0
                 print(f"  -> New best fitness: {best_fitness:.4f} at generation {generation}")
             else:
                 self.stagnation_counter += 1
+                generations_without_improvement += 1
 
             fitness_history.append(best_fitness)
 
             if generation % 50 == 0:
                 avg_fitness = sum(c.fitness for c in population) / len(population)
                 print(f"Gen {generation}: Best={best_fitness:.4f}, Avg={avg_fitness:.4f}, "
-                      f"Current={current_best_fitness:.4f}, Stag={self.stagnation_counter}")
+                      f"Current={current_best_fitness:.4f}, NoImprove={generations_without_improvement}")
 
-            # Check convergence
-            if best_fitness >= 0.9:
-                print(f"Converged at generation {generation} with fitness {best_fitness:.4f}")
+            # Multiple termination conditions
+            termination_reason = None
+
+            # 1. Excellent fitness achieved
+            if best_fitness >= 0.95:
+                termination_reason = f"Excellent fitness achieved: {best_fitness:.4f}"
+
+            # 2. Good enough fitness with no improvement for a while
+            elif best_fitness >= 0.8 and generations_without_improvement >= max_generations_without_improvement // 2:
+                termination_reason = f"Good fitness ({best_fitness:.4f}) with no improvement for {generations_without_improvement} generations"
+
+            # 3. Long period without any improvement
+            elif generations_without_improvement >= max_generations_without_improvement:
+                termination_reason = f"No significant improvement for {generations_without_improvement} generations"
+
+            # 4. Maximum generations reached
+            elif generation >= self.generations - 1:
+                termination_reason = f"Maximum generations ({self.generations}) reached"
+
+            # 5. Diminishing returns - very small improvements over long period
+            elif (generation > 100 and
+                  len(fitness_history) >= 100 and
+                  fitness_history[-1] - fitness_history[-100] < 0.01):
+                termination_reason = "Diminishing returns detected - very small improvements over last 100 generations"
+
+            if termination_reason:
+                print(f"Evolution terminated: {termination_reason}")
+                print(f"Final fitness: {best_fitness:.4f} at generation {generation}")
                 break
 
-            # Handle stagnation with restart limits
-            if self.stagnation_counter >= self.stagnation_limit:
+            # Handle stagnation with restart limits (only if we haven't reached decent fitness)
+            if self.stagnation_counter >= self.stagnation_limit and best_fitness < 0.7:
                 self.restart_count += 1
 
                 if self.restart_count >= self.max_restarts:
                     print(f"  -> Maximum restarts ({self.max_restarts}) reached. Stopping evolution.")
+                    print(f"  -> Best fitness achieved: {best_fitness:.4f}")
                     break
 
                 print(f"  -> Restart {self.restart_count}/{self.max_restarts} due to stagnation")
@@ -803,9 +836,9 @@ class GeneticAlgorithm:
 
                 population = new_population
                 self.stagnation_counter = 0
+                generations_without_improvement = 0  # Reset this counter too
 
                 # Reset adaptive parameters
-                self.temperature = 1.0
                 self.mutation_rate = self.initial_mutation_rate
 
                 continue
@@ -1120,12 +1153,35 @@ class GeneticAlgorithm:
         return repaired
 
     def print_schedule(self, chromosome: Chromosome) -> None:
-        """Print the schedule organized by section in a readable format"""
+        """Print the schedule organized by section in a readable format, including penalty breakdown"""
         if not chromosome:
             print("No valid schedule found")
             return
 
-        print(f"\n=== SCHEDULE BY SECTION (Fitness: {chromosome.fitness:.4f}) ===")
+        # Calculate penalty breakdown
+        penalty = 0
+        penalty_breakdown = {
+            'professor_conflicts': 100 * chromosome._check_professor_conflicts(),
+            'room_conflicts': 100 * chromosome._check_room_conflicts(),
+            'time_window': 100 * chromosome._check_time_window(),
+            'same_subject_same_day': 100 * chromosome._check_same_subject_same_day(),
+            'sunday_constraints': 100 * chromosome._check_sunday_constraints(),
+            'break_constraints': 50 * chromosome._check_break_constraints(),
+            'subject_spacing': 50 * chromosome.check_subject_spacing_violations(),
+            'subject_room': 20 * chromosome._check_subject_room(),
+            'professor_breaks': 50 * chromosome._check_professor_breaks(),
+            'wed_sat_constraints': 40 * chromosome._check_wednesday_saturday_constraints()
+        }
+        total_penalty = sum(penalty_breakdown.values())
+
+        print(f"\n=== SCHEDULE SUMMARY ===")
+        print(f"Fitness: {chromosome.fitness:.4f}")
+        print(f"Total Penalty: {total_penalty}")
+        print("\n=== PENALTY BREAKDOWN ===")
+        for constraint, value in penalty_breakdown.items():
+            print(f"{constraint.replace('_', ' ').title():<25}: {value}")
+
+        print("\n=== DETAILED SCHEDULE BY SECTION ===")
 
         # Track TBA assignments
         tba_subjects = set()
@@ -1142,7 +1198,8 @@ class GeneticAlgorithm:
             print(f"\n--- Section {section_id} ---")
 
             # Sort by day and then by time
-            section_genes = sorted(schedule_by_section[section_id], key=lambda g: (g.day.value, g.start_time))
+            section_genes = sorted(schedule_by_section[section_id],
+                                   key=lambda g: (g.day.value, g.start_time))
 
             for gene in section_genes:
                 start_time = f"{int(gene.start_time):02d}:{int((gene.start_time % 1) * 60):02d}"

@@ -171,16 +171,16 @@ def create_sample_data():
         Section("INF243", "IT",
                 ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
 
-        # Section("INF244", "IT",
-        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        # Section("INF245", "IT",
-        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        # Section("INF246", "IT",
-        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        # Section("INF247", "IT",
-        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        Section("INF244", "IT",
+                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        Section("INF245", "IT",
+                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        Section("INF246", "IT",
+                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        Section("INF247", "IT",
+                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
 
-        #2nd year
+        # 2nd year
         Section("INF231",  "IT",
                 ["CCQUAMET", "CTBASNTL", "CTFDMBSL", "CTWBDEVL"], 45),
         Section("INF232", "IT",

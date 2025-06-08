@@ -19,6 +19,7 @@ class Day(Enum):
     THURSDAY = 3
     FRIDAY = 4
     SATURDAY = 5
+    SUNDAY = 6
     #Wednesday skipped (no classes on wednesdays)
 
 @dataclass

@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List
+from typing import List, Tuple
 
 from models.gene import Gene
 from models.resources import Day, Subject
@@ -10,49 +10,56 @@ class Chromosome:
         # A chromosome represents a full schedule (list of scheduled sessions/genes)
         self.genes = genes
         self.fitness = 0.0  # Fitness score (higher = better)
-
-    def calculate_fitness(self, constraints) -> float:
+        self.penalty = 0
+    def calculate_fitness(self, constraints)  -> tuple[float, float]:
         """
         Calculates the fitness of the chromosome based on several constraints
         """
 
-        penalty = 0
+        self.penalty = 0
 
         """ Hard constraints """
         # An instructor must not be scheduled to teach more than one class at the same time
-        penalty += 100 * self._check_professor_conflicts()
+        self.penalty += 100 * self._check_professor_conflicts()
 
         # No two classes may be scheduled in the same room at the same time.
-        penalty += 100 * self._check_room_conflicts()
+        self.penalty += 100 * self._check_room_conflicts()
 
         # # A section must not have more than one class scheduled at the same time
         # penalty += 100 * self._check_section_conflicts()
 
         # Classes must be scheduled within the time window of 7:00 AM to 9:00 PM.
-        penalty += 100 * self._check_time_window()
+        self.penalty += 100 * self._check_time_window()
 
         # Sessions of the same subject should not be scheduled more than once on the same day.
-        penalty += 100 * self._check_same_subject_same_day()
+        self.penalty += 100 * self._check_same_subject_same_day()
+
+        # Academic sessions should not be scheduled on Sundays
+        self.penalty += 100 * self._check_sunday_constraints()
 
         """ Soft constraints """
         # A lunch break should be included in the daily schedule, typically between classes
-        penalty += 50 * self._check_break_constraints()
+        self.penalty += 50 * self._check_break_constraints()
 
         # Sessions of the same subject should preferably be scheduled on non-consecutive days.
-        penalty += 50 * self.check_subject_spacing_violations()
+        self.penalty += 50 * self.check_subject_spacing_violations()
 
         # Sessions of the same subject should preferably be scheduled in the same rooms.
-        penalty +=20 * self._check_subject_room()
+        self.penalty +=20 * self._check_subject_room()
 
         # Subjects should be evenly distributed throughout the week.
         # penalty += 30 * self.check_subject_distribution()
 
         # Professor teaching schedules should be arranged to prevent consecutive lessons without breaks.
-        penalty += 50 * self._check_professor_breaks()
+        self.penalty += 50 * self._check_professor_breaks()
+
+        # Academic sessions should not be scheduled on Wednesdays and Saturdays.
+        self.penalty += 40 * self._check_wednesday_saturday_constraints()
 
         # Perfect fitness is 1.0
-        self.fitness = 1000.0 / (1000.0 + penalty)
-        return self.fitness
+        self.fitness = 1000.0 / (1000.0 + self.penalty)
+        return self.fitness, self.penalty
+
 
     def _check_professor_conflicts(self) -> int:
         """
@@ -99,6 +106,30 @@ class Chromosome:
                     if gene1.overlaps_with(gene2):
                         conflicts += 1
         return conflicts
+
+    def _check_sunday_constraints(self) -> int:
+        """
+        Penalizes classes scheduled on Wednesdays and Saturdays
+        """
+        violations = 0
+        for gene in self.genes:
+            # Assuming Day enum has WEDNESDAY and SATURDAY values
+            # Adjust the comparison based on your Day enum implementation
+            if gene.day == Day.SUNDAY:
+                violations += 1
+        return violations
+
+    def _check_wednesday_saturday_constraints(self) -> int:
+        """
+        Penalizes classes scheduled on Wednesdays and Saturdays
+        """
+        violations = 0
+        for gene in self.genes:
+            # Assuming Day enum has WEDNESDAY and SATURDAY values
+            # Adjust the comparison based on your Day enum implementation
+            if gene.day == Day.WEDNESDAY or gene.day == Day.SATURDAY:
+                violations += 1
+        return violations
 
     def _check_time_window(self) -> int:
         """
