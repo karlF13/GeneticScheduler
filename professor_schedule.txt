@@ -1,0 +1,354 @@
+============================================================
+PROFESSOR SCHEDULE REPORT
+Generated on: 2025-06-08 23:27:03
+============================================================
+
+Professor: A. CABRERA
+---------------------
+Total Weekly Hours: 4.0
+
+  TUESDAY   | 19:00-21:00 | GEETH01X     | Section: INF243   | Online
+  THURSDAY  | 17:30-19:30 | GEETH01X     | Section: INF243   | Online
+
+Professor: A. CAMACHO
+---------------------
+Total Weekly Hours: 21.3
+
+  MONDAY    | 16:00-20:00 | CCINTHCI     | Section: INF222   | Room: 504
+  TUESDAY   | 13:30-16:10 | CTBASNTL     | Section: INF232   | Room: 504
+  WEDNESDAY | 14:30-18:30 | CTBASNTL     | Section: INF232   | Room: 504
+  THURSDAY  | 08:00-12:00 | CCINTHCI     | Section: INF224   | Room: 505
+  THURSDAY  | 14:30-17:10 | CTBASNTL     | Section: INF234   | Room: 504
+  SATURDAY  | 07:00-11:00 | CTBASNTL     | Section: INF234   | Room: 504
+
+Professor: A. VICENTE
+---------------------
+Total Weekly Hours: 28.0
+
+  MONDAY    | 07:00-09:00 | CCDISTR1     | Section: INF244   | Room: 407
+  MONDAY    | 16:30-18:30 | CCDISTR1     | Section: INF245   | Room: 410
+  MONDAY    | 19:00-21:00 | CCDISTR1     | Section: INF242   | Room: 410
+  TUESDAY   | 13:00-15:00 | CCDISTR1     | Section: INF247   | Room: 410
+  WEDNESDAY | 07:00-09:00 | CCDISTR1     | Section: INF241   | Room: 410
+  WEDNESDAY | 19:00-21:00 | CCDISTR1     | Section: INF243   | Room: 410
+  THURSDAY  | 07:00-09:00 | CCDISTR1     | Section: INF241   | Room: 410
+  THURSDAY  | 10:00-12:00 | CCDISTR1     | Section: INF246   | Room: 407
+  THURSDAY  | 13:00-15:00 | CCDISTR1     | Section: INF245   | Room: 407
+  THURSDAY  | 17:30-19:30 | CCDISTR1     | Section: INF242   | Room: 407
+  FRIDAY    | 13:00-15:00 | CCDISTR1     | Section: INF246   | Room: 407
+  FRIDAY    | 19:00-21:00 | CCDISTR1     | Section: INF243   | Room: 410
+  SATURDAY  | 07:30-09:30 | CCDISTR1     | Section: INF244   | Room: 407
+  SATURDAY  | 14:30-16:30 | CCDISTR1     | Section: INF247   | Room: 410
+
+Professor: BA ESTRADA
+---------------------
+Total Weekly Hours: 4.0
+
+  MONDAY    | 07:30-09:30 | GENAT01R     | Section: INF246   | Online
+  TUESDAY   | 16:30-18:30 | GENAT01R     | Section: INF246   | Online
+
+Professor: BUHAIN
+-----------------
+Total Weekly Hours: 13.3
+
+  TUESDAY   | 07:00-09:40 | CTAINASL     | Section: INF224   | Room: 410
+  TUESDAY   | 17:00-19:40 | CTAINASL     | Section: INF221   | Room: 410
+  WEDNESDAY | 07:30-11:30 | CTAINASL     | Section: INF221   | Room: 502
+  SATURDAY  | 16:30-20:30 | CTAINASL     | Section: INF224   | Room: 504
+
+Professor: C. SANTIAGO
+----------------------
+Total Weekly Hours: 4.0
+
+  MONDAY    | 18:30-20:30 | GENAT01R     | Section: COM242   | Online
+  THURSDAY  | 10:00-12:00 | GENAT01R     | Section: COM242   | Online
+
+Professor: C. TORRES
+--------------------
+Total Weekly Hours: 6.7
+
+  WEDNESDAY | 07:00-09:40 | CTAINASL     | Section: INF222   | Room: 410
+  FRIDAY    | 15:30-19:30 | CTAINASL     | Section: INF222   | Room: 502
+
+Professor: D. CONDEZ
+--------------------
+Total Weekly Hours: 4.0
+
+  TUESDAY   | 18:30-20:30 | GENAT01R     | Section: INF244   | Online
+  FRIDAY    | 10:00-12:00 | GENAT01R     | Section: INF244   | Online
+
+Professor: D. URGELLES
+----------------------
+Total Weekly Hours: 8.0
+
+  MONDAY    | 16:30-18:30 | GEETH01X     | Section: INF241   | Online
+  TUESDAY   | 14:00-16:00 | GEETH01X     | Section: INF246   | Online
+  WEDNESDAY | 15:00-17:00 | GEETH01X     | Section: INF241   | Online
+  FRIDAY    | 17:30-19:30 | GEETH01X     | Section: INF246   | Online
+
+Professor: E. ALINO
+-------------------
+Total Weekly Hours: 32.0
+
+  MONDAY    | 07:00-09:00 | CTAPROJ1     | Section: INF224   | Online
+  MONDAY    | 14:00-16:40 | CTWBDEVL     | Section: INF234   | Room: 407
+  TUESDAY   | 07:00-09:00 | CTAPROJ1     | Section: INF222   | Online
+  WEDNESDAY | 07:00-09:40 | CTWBDEVL     | Section: INF232   | Room: 407
+  WEDNESDAY | 13:00-15:40 | CTWBDEVL     | Section: INF233   | Room: 407
+  THURSDAY  | 08:00-12:00 | CTWBDEVL     | Section: INF234   | Room: 502
+  THURSDAY  | 17:00-19:00 | CTAPROJ1     | Section: INF221   | Online
+  FRIDAY    | 07:00-11:00 | CTWBDEVL     | Section: INF232   | Room: 502
+  FRIDAY    | 18:00-20:00 | CTAPROJ1     | Section: INF224   | Online
+  SATURDAY  | 10:00-12:00 | CTAPROJ1     | Section: INF221   | Online
+  SATURDAY  | 13:00-17:00 | CTWBDEVL     | Section: INF233   | Room: 501
+  SATURDAY  | 18:30-20:30 | CTAPROJ1     | Section: INF222   | Online
+
+Professor: E. LAGOS
+-------------------
+Total Weekly Hours: 8.0
+
+  MONDAY    | 09:00-11:00 | GEETH01X     | Section: INF247   | Online
+  WEDNESDAY | 13:00-15:00 | GENAT01R     | Section: INF243   | Online
+  FRIDAY    | 15:00-17:00 | GEETH01X     | Section: INF247   | Online
+  SATURDAY  | 07:00-09:00 | GENAT01R     | Section: INF243   | Online
+
+Professor: E. RAMIREZ
+---------------------
+Total Weekly Hours: 25.3
+
+  MONDAY    | 08:00-10:40 | CCOBJPGL     | Section: COM242   | Room: 431
+  MONDAY    | 15:30-19:30 | CCOBJPGL     | Section: COM241   | Room: 505
+  TUESDAY   | 07:00-09:00 | CCALCOMP     | Section: COM231   | Room: 431
+  TUESDAY   | 19:00-21:00 | CCALCOMP     | Section: COM232   | Room: 431
+  THURSDAY  | 10:00-12:00 | CCALCOMP     | Section: COM231   | Room: 431
+  THURSDAY  | 17:00-21:00 | CCINTHCI     | Section: COM221   | Room: 505
+  FRIDAY    | 07:00-09:00 | CCALCOMP     | Section: COM232   | Room: 431
+  FRIDAY    | 13:30-16:10 | CCOBJPGL     | Section: COM241   | Room: 431
+  FRIDAY    | 16:30-20:30 | CCOBJPGL     | Section: COM242   | Room: 505
+
+Professor: EJ LAYUG
+-------------------
+Total Weekly Hours: 8.0
+
+  TUESDAY   | 16:30-18:30 | GENAT01R     | Section: INF241   | Online
+  WEDNESDAY | 07:00-09:00 | GENAT01R     | Section: INF247   | Online
+  WEDNESDAY | 18:30-20:30 | GENAT01R     | Section: INF241   | Online
+  FRIDAY    | 09:30-11:30 | GENAT01R     | Section: INF247   | Online
+
+Professor: F. ATIENZA
+---------------------
+Total Weekly Hours: 13.3
+
+  MONDAY    | 07:30-11:30 | CTFDMBSL     | Section: INF232   | Room: 502
+  WEDNESDAY | 08:00-12:00 | CTFDMBSL     | Section: INF234   | Room: 501
+  FRIDAY    | 14:30-17:10 | CTFDMBSL     | Section: INF232   | Room: 410
+  SATURDAY  | 17:00-19:40 | CTFDMBSL     | Section: INF234   | Room: 410
+
+Professor: G. BAYRAN
+--------------------
+Total Weekly Hours: 4.0
+
+  TUESDAY   | 16:00-18:00 | GENAT01R     | Section: COM241   | Online
+  SATURDAY  | 10:00-12:00 | GENAT01R     | Section: COM241   | Online
+
+Professor: J. ABAO
+------------------
+Total Weekly Hours: 6.7
+
+  MONDAY    | 08:00-12:00 | CTAINASL     | Section: INF223   | Room: 504
+  TUESDAY   | 13:30-16:10 | CTAINASL     | Section: INF223   | Room: 407
+
+Professor: J. BRAVO
+-------------------
+Total Weekly Hours: 29.3
+
+  MONDAY    | 07:00-11:00 | CTFDMBSL     | Section: COM231   | Room: 505
+  MONDAY    | 13:00-15:40 | CTFDMBSL     | Section: COM232   | Room: 431
+  TUESDAY   | 10:00-12:00 | CCQUAMET     | Section: COM231   | Room: 431
+  TUESDAY   | 13:00-15:00 | CCDISTR1     | Section: COM241   | Room: 431
+  TUESDAY   | 16:30-18:30 | CCQUAMET     | Section: COM232   | Room: 431
+  WEDNESDAY | 14:30-18:30 | CTFDMBSL     | Section: COM232   | Room: 505
+  THURSDAY  | 07:30-09:30 | CCQUAMET     | Section: COM232   | Room: 431
+  THURSDAY  | 15:00-17:00 | CCQUAMET     | Section: COM231   | Room: 431
+  THURSDAY  | 17:30-19:30 | CCDISTR1     | Section: COM241   | Room: 431
+  FRIDAY    | 07:00-09:40 | CTFDMBSL     | Section: COM231   | Room: 431
+  FRIDAY    | 10:00-12:00 | CCDISTR1     | Section: COM242   | Room: 431
+  SATURDAY  | 13:00-15:00 | CCDISTR1     | Section: COM242   | Room: 431
+
+Professor: J. SACDALAN
+----------------------
+Total Weekly Hours: 30.7
+
+  MONDAY    | 07:00-09:40 | CCOBJPGL     | Section: INF245   | Room: 410
+  MONDAY    | 13:00-15:40 | CCOBJPGL     | Section: INF247   | Room: 410
+  TUESDAY   | 07:00-09:40 | CCOBJPGL     | Section: INF241   | Room: 410
+  WEDNESDAY | 10:00-12:00 | CTAPROJ1     | Section: INF223   | Online
+  WEDNESDAY | 16:00-18:40 | CCOBJPGL     | Section: INF243   | Room: 410
+  THURSDAY  | 07:30-11:30 | CCOBJPGL     | Section: INF243   | Room: 501
+  THURSDAY  | 13:00-15:00 | CTAPROJ1     | Section: INF223   | Online
+  FRIDAY    | 14:30-18:30 | CCOBJPGL     | Section: INF245   | Room: 504
+  SATURDAY  | 08:00-12:00 | CCOBJPGL     | Section: INF247   | Room: 502
+  SATURDAY  | 13:00-17:00 | CCOBJPGL     | Section: INF241   | Room: 502
+
+Professor: JA LIBUNAO
+---------------------
+Total Weekly Hours: 6.0
+
+  TUESDAY   | 18:00-20:00 | GEETH01X     | Section: COM241   | Online
+  THURSDAY  | 09:30-11:30 | GEETH01X     | Section: COM241   | Online
+  FRIDAY    | 13:00-15:00 | GEETH01X     | Section: INF244   | Online
+
+Professor: L. TAVU
+------------------
+Total Weekly Hours: 6.7
+
+  TUESDAY   | 16:00-20:00 | CTAPDEVL     | Section: COM221   | Room: 505
+  SATURDAY  | 18:00-20:40 | CTAPDEVL     | Section: COM221   | Room: 431
+
+Professor: M. GALO
+------------------
+Total Weekly Hours: 20.0
+
+  TUESDAY   | 08:00-12:00 | CCOBJPGL     | Section: INF246   | Room: 502
+  THURSDAY  | 07:00-11:00 | CCOBJPGL     | Section: INF244   | Room: 504
+  FRIDAY    | 07:00-11:00 | CCOBJPGL     | Section: INF242   | Room: 501
+  SATURDAY  | 07:00-09:40 | CCOBJPGL     | Section: INF246   | Room: 410
+  SATURDAY  | 13:00-15:40 | CCOBJPGL     | Section: INF242   | Room: 407
+  SATURDAY  | 18:00-20:40 | CCOBJPGL     | Section: INF244   | Room: 407
+
+Professor: M. REYES
+-------------------
+Total Weekly Hours: 20.0
+
+  MONDAY    | 10:00-12:00 | CCQUAMET     | Section: INF231   | Room: 410
+  MONDAY    | 18:00-20:00 | CCQUAMET     | Section: INF233   | Room: 407
+  TUESDAY   | 10:00-12:00 | CCQUAMET     | Section: INF235   | Room: 407
+  TUESDAY   | 16:30-18:30 | CCQUAMET     | Section: INF232   | Room: 407
+  WEDNESDAY | 14:00-16:00 | CCQUAMET     | Section: INF234   | Room: 410
+  THURSDAY  | 07:00-09:00 | CCQUAMET     | Section: INF233   | Room: 407
+  FRIDAY    | 07:00-09:00 | CCQUAMET     | Section: INF235   | Room: 410
+  FRIDAY    | 09:30-11:30 | CCQUAMET     | Section: INF234   | Room: 410
+  FRIDAY    | 18:00-20:00 | CCQUAMET     | Section: INF232   | Room: 407
+  SATURDAY  | 10:00-12:00 | CCQUAMET     | Section: INF231   | Room: 410
+
+Professor: M. ZUNIGA
+--------------------
+Total Weekly Hours: 20.0
+
+  MONDAY    | 08:00-12:00 | CTBASNTL     | Section: COM232   | Room: 534
+  TUESDAY   | 16:00-20:00 | CTBASNTL     | Section: COM231   | Room: 534
+  WEDNESDAY | 17:30-20:10 | CTBASNTL     | Section: COM231   | Room: 534
+  THURSDAY  | 08:00-12:00 | CTBASNTL     | Section: INF235   | Room: 534
+  THURSDAY  | 14:30-17:10 | CTBASNTL     | Section: COM232   | Room: 534
+  SATURDAY  | 08:00-10:40 | CTBASNTL     | Section: INF235   | Room: 534
+
+Professor: M.J QUILITAN
+-----------------------
+Total Weekly Hours: 6.0
+
+  MONDAY    | 15:30-17:30 | GEETH01X     | Section: COM242   | Online
+  TUESDAY   | 08:00-10:00 | GEETH01X     | Section: INF244   | Online
+  WEDNESDAY | 10:00-12:00 | GEETH01X     | Section: COM242   | Online
+
+Professor: N. UMPAR
+-------------------
+Total Weekly Hours: 8.0
+
+  MONDAY    | 17:00-19:00 | GEETH01X     | Section: INF242   | Online
+  TUESDAY   | 18:30-20:30 | GEETH01X     | Section: INF245   | Online
+  WEDNESDAY | 15:00-17:00 | GEETH01X     | Section: INF242   | Online
+  SATURDAY  | 18:00-20:00 | GEETH01X     | Section: INF245   | Online
+
+Professor: R. GALAPON
+---------------------
+Total Weekly Hours: 21.3
+
+  MONDAY    | 07:30-11:30 | CCINTHCI     | Section: INF221   | Room: 501
+  TUESDAY   | 07:00-11:00 | CCINTHCI     | Section: INF223   | Room: 501
+  WEDNESDAY | 07:00-11:00 | CTBASNTL     | Section: INF233   | Room: 534
+  FRIDAY    | 07:00-11:00 | CTBASNTL     | Section: INF231   | Room: 504
+  FRIDAY    | 16:00-18:40 | CTBASNTL     | Section: INF233   | Room: 534
+  SATURDAY  | 13:30-16:10 | CTBASNTL     | Section: INF231   | Room: 504
+
+Professor: R. VIADO
+-------------------
+Total Weekly Hours: 40.0
+
+  MONDAY    | 09:00-11:40 | CTADWEBL     | Section: INF224   | Room: 407
+  MONDAY    | 15:30-19:30 | CTADWEBL     | Section: INF221   | Room: 501
+  TUESDAY   | 07:00-09:40 | CTWBDEVL     | Section: INF235   | Room: 407
+  WEDNESDAY | 07:00-11:00 | CTADWEBL     | Section: INF224   | Room: 505
+  WEDNESDAY | 17:30-20:10 | CTWBDEVL     | Section: INF231   | Room: 407
+  THURSDAY  | 09:00-11:40 | CTADWEBL     | Section: INF223   | Room: 410
+  THURSDAY  | 13:30-16:10 | CTADWEBL     | Section: INF222   | Room: 410
+  THURSDAY  | 17:00-21:00 | CTWBDEVL     | Section: INF231   | Room: 502
+  FRIDAY    | 07:00-09:40 | CTADWEBL     | Section: INF221   | Room: 407
+  FRIDAY    | 15:00-19:00 | CTWBDEVL     | Section: INF235   | Room: 501
+  SATURDAY  | 07:00-11:00 | CTADWEBL     | Section: INF222   | Room: 501
+  SATURDAY  | 17:00-21:00 | CTADWEBL     | Section: INF223   | Room: 502
+
+Professor: S. LUMBOG
+--------------------
+Total Weekly Hours: 20.0
+
+  MONDAY    | 07:00-09:40 | CTFDMBSL     | Section: INF235   | Room: 410
+  TUESDAY   | 07:00-09:40 | CTFDMBSL     | Section: INF231   | Room: 407
+  TUESDAY   | 14:30-18:30 | CTFDMBSL     | Section: INF235   | Room: 501
+  THURSDAY  | 17:30-20:10 | CTFDMBSL     | Section: INF233   | Room: 410
+  FRIDAY    | 07:00-11:00 | CTFDMBSL     | Section: INF233   | Room: 505
+  SATURDAY  | 07:00-11:00 | CTFDMBSL     | Section: INF231   | Room: 505
+
+Professor: S. REBUTOC
+---------------------
+Total Weekly Hours: 16.0
+
+  MONDAY    | 16:30-20:30 | CCPHYS2L     | Section: COM231   | Room: 431
+  WEDNESDAY | 07:00-11:00 | CCPHYS2L     | Section: COM232   | Room: 431
+  FRIDAY    | 17:00-21:00 | CCPHYS2L     | Section: COM232   | Room: 431
+  SATURDAY  | 07:00-11:00 | CCPHYS2L     | Section: COM231   | Room: 431
+
+Professor: T. MAGSINO
+---------------------
+Total Weekly Hours: 4.0
+
+  MONDAY    | 09:00-11:00 | GENAT01R     | Section: INF242   | Online
+  FRIDAY    | 15:30-17:30 | GENAT01R     | Section: INF242   | Online
+
+Professor: Z. PENUS
+-------------------
+Total Weekly Hours: 4.0
+
+  TUESDAY   | 15:00-17:00 | GENAT01R     | Section: INF245   | Online
+  THURSDAY  | 15:30-17:30 | GENAT01R     | Section: INF245   | Online
+
+UNASSIGNED CLASSES (TBA)
+=========================
+The following classes need professor assignment:
+
+  THURSDAY  | 14:30-17:10 | MCFIT03X     | Section: COM241   | Room: 503
+  THURSDAY  | 07:00-09:00 | MNSTP02X     | Section: COM241   | Online
+  MONDAY    | 08:00-10:00 | MNSTP02X     | Section: COM241   | Online
+  TUESDAY   | 07:00-09:40 | MCFIT03X     | Section: COM242   | Room: 503
+  WEDNESDAY | 15:00-17:00 | MNSTP02X     | Section: COM242   | Online
+  SATURDAY  | 17:00-19:00 | MNSTP02X     | Section: COM242   | Online
+  THURSDAY  | 18:00-20:40 | MCFIT03X     | Section: INF241   | Room: 503
+  WEDNESDAY | 10:00-12:00 | MNSTP02X     | Section: INF241   | Online
+  TUESDAY   | 10:00-12:00 | MNSTP02X     | Section: INF241   | Online
+  MONDAY    | 13:30-16:10 | MCFIT03X     | Section: INF242   | Room: 503
+  WEDNESDAY | 17:30-19:30 | MNSTP02X     | Section: INF242   | Online
+  FRIDAY    | 18:30-20:30 | MNSTP02X     | Section: INF242   | Online
+  FRIDAY    | 14:30-17:10 | MCFIT03X     | Section: INF243   | Room: 503
+  FRIDAY    | 09:00-11:00 | MNSTP02X     | Section: INF243   | Online
+  TUESDAY   | 14:00-16:00 | MNSTP02X     | Section: INF243   | Online
+  TUESDAY   | 13:00-15:40 | MCFIT03X     | Section: INF244   | Room: 503
+  TUESDAY   | 10:00-12:00 | MNSTP02X     | Section: INF244   | Online
+  SATURDAY  | 13:00-15:00 | MNSTP02X     | Section: INF244   | Online
+  SATURDAY  | 08:30-11:10 | MCFIT03X     | Section: INF245   | Room: 503
+  FRIDAY    | 09:00-11:00 | MNSTP02X     | Section: INF245   | Online
+  WEDNESDAY | 07:00-09:00 | MNSTP02X     | Section: INF245   | Online
+  MONDAY    | 17:00-19:40 | MCFIT03X     | Section: INF246   | Room: 503
+  MONDAY    | 09:30-11:30 | MNSTP02X     | Section: INF246   | Online
+  WEDNESDAY | 13:00-15:00 | MNSTP02X     | Section: INF246   | Online
+  TUESDAY   | 17:00-19:40 | MCFIT03X     | Section: INF247   | Room: 503
+  SATURDAY  | 19:00-21:00 | MNSTP02X     | Section: INF247   | Online
+  FRIDAY    | 07:00-09:00 | MNSTP02X     | Section: INF247   | Online

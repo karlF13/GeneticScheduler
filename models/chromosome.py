@@ -31,9 +31,6 @@ class Chromosome:
         # Sessions of the same subject should not be scheduled more than once on the same day.
         self.penalty += 100 * self._check_same_subject_same_day()
 
-        # Academic sessions should not be scheduled on Sundays
-        self.penalty += 100 * self._check_sunday_constraints()
-
         """ Soft constraints """
         # A lunch break should be included in the daily schedule, typically between classes
         self.penalty += 50 * self._check_break_constraints()
@@ -102,17 +99,6 @@ class Chromosome:
                         conflicts += 1
         return conflicts
 
-    def _check_sunday_constraints(self) -> int:
-        """
-        Penalizes classes scheduled on Wednesdays and Saturdays
-        """
-        violations = 0
-        for gene in self.genes:
-            # Assuming Day enum has WEDNESDAY and SATURDAY values
-            # Adjust the comparison based on your Day enum implementation
-            if gene.day == Day.SUNDAY:
-                violations += 1
-        return violations
 
     def _check_wednesday_saturday_constraints(self) -> int:
         """

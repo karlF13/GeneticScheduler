@@ -235,7 +235,7 @@ class GeneticAlgorithm:
         suitable_rooms = []
 
         for room in self.rooms:
-            if room.room_type == session_type:
+            if session_type in room.room_type:
                 if room.preferred_courses is None or course in room.preferred_courses:
 
                     suitable_rooms.append(room)
@@ -318,10 +318,11 @@ class GeneticAlgorithm:
         return chromosome
 
     def create_intelligent_chromosome(self) -> Chromosome:
-        """Create chromosome with conflict-aware scheduling"""
+        """Create chromosome with conflict-aware scheduling and professor consistency"""
         genes = []
         professor_schedule = defaultdict(list)  # Track professor assignments
         room_schedule = defaultdict(list)  # Track room assignments
+        section_subject_professor = {}  # Track professor assignments per subject per section
 
         # Group required sessions by section
         section_sessions = defaultdict(list)
@@ -349,15 +350,21 @@ class GeneticAlgorithm:
             all_sessions = bottleneck_sessions + regular_sessions
 
             for subject_id, session_template in all_sessions:
-                # Get qualified professors
-                qualified_profs = self._get_qualified_professors(subject_id, section.id)
-
-                # Select professor (or TBA if none available)
-                if qualified_profs:
-                    best_prof = self._select_best_professor(qualified_profs, professor_schedule)
-                    professor_id = best_prof.id
+                # Check if we already assigned a professor for this subject in this section
+                key = (section.id, subject_id)
+                if key in section_subject_professor:
+                    professor_id = section_subject_professor[key]
                 else:
-                    professor_id = "TBA"  # No qualified professor found
+                    # Get qualified professors
+                    qualified_profs = self._get_qualified_professors(subject_id, section.id)
+
+                    # Select professor (or TBA if none available)
+                    if qualified_profs:
+                        best_prof = self._select_best_professor(qualified_profs, professor_schedule)
+                        professor_id = best_prof.id
+                        section_subject_professor[key] = professor_id
+                    else:
+                        professor_id = "TBA"  # No qualified professor found
 
                 # Select room if needed
                 room_id = None
@@ -516,22 +523,28 @@ class GeneticAlgorithm:
             return random.choice(list(Day)), self._find_valid_start_time(duration)
 
     def create_random_chromosome(self) -> Chromosome:
-        """Create a random chromosome (fallback method)"""
+        """Create a random chromosome with professor consistency"""
         genes = []
+        section_subject_professor = {}  # Track professor assignments per subject per section
 
         for section in self.sections:
             for subject_id in section.subjects:
                 subject = self.subject_dict[subject_id]
 
-                for session_template in subject.sessions:
+                # Check if we already assigned a professor for this subject in this section
+                key = (section.id, subject_id)
+                if key in section_subject_professor:
+                    professor_id = section_subject_professor[key]
+                else:
                     qualified_profs = self._get_qualified_professors(subject_id, section.id)
-
                     # Use TBA if no qualified professors found
                     if qualified_profs:
                         professor_id = random.choice(qualified_profs).id
+                        section_subject_professor[key] = professor_id
                     else:
                         professor_id = "TBA"
 
+                for session_template in subject.sessions:
                     room_id = None
                     if subject.requires_room:
                         suitable_rooms = self._get_suitable_rooms(
@@ -683,8 +696,9 @@ class GeneticAlgorithm:
             start_time=start_time,
             duration=session_template.duration_hours
         )
+
     def mutate(self, chromosome: Chromosome) -> Chromosome:
-        """Enhanced mutation with conflict resolution"""
+        """Enhanced mutation with conflict resolution and professor consistency"""
         if random.random() > self.mutation_rate:
             return chromosome
 
@@ -702,7 +716,13 @@ class GeneticAlgorithm:
                     current_prof = gene.professor_id
                     alternatives = [p for p in qualified_profs if p.id != current_prof]
                     if alternatives:
-                        gene.professor_id = random.choice(alternatives).id
+                        new_professor = random.choice(alternatives).id
+
+                        # Update all genes for this subject in this section
+                        for g in mutated_chromosome.genes:
+                            if (g.section_id == gene.section_id and
+                                    g.subject_id == gene.subject_id):
+                                g.professor_id = new_professor
 
             elif mutation_type == 'room' and gene.room_id:
                 section = next(s for s in self.sections if s.id == gene.section_id)

@@ -1,0 +1,253 @@
+============================================================
+ROOM UTILIZATION REPORT
+Generated on: 2025-06-08 23:27:03
+============================================================
+
+Room: 407
+---------
+Total Weekly Hours: 51.4
+Number of Classes: 22
+
+  MONDAY    | 07:00-09:00 | CCDISTR1     | Section: INF244   | Prof: A. VICENTE
+  MONDAY    | 09:00-11:40 | CTADWEBL     | Section: INF224   | Prof: R. VIADO
+  MONDAY    | 14:00-16:40 | CTWBDEVL     | Section: INF234   | Prof: E. ALINO
+  MONDAY    | 18:00-20:00 | CCQUAMET     | Section: INF233   | Prof: M. REYES
+  TUESDAY   | 07:00-09:40 | CTFDMBSL     | Section: INF231   | Prof: S. LUMBOG
+  TUESDAY   | 07:00-09:40 | CTWBDEVL     | Section: INF235   | Prof: R. VIADO
+  TUESDAY   | 10:00-12:00 | CCQUAMET     | Section: INF235   | Prof: M. REYES
+  TUESDAY   | 13:30-16:10 | CTAINASL     | Section: INF223   | Prof: J. ABAO
+  TUESDAY   | 16:30-18:30 | CCQUAMET     | Section: INF232   | Prof: M. REYES
+  WEDNESDAY | 07:00-09:40 | CTWBDEVL     | Section: INF232   | Prof: E. ALINO
+  WEDNESDAY | 13:00-15:40 | CTWBDEVL     | Section: INF233   | Prof: E. ALINO
+  WEDNESDAY | 17:30-20:10 | CTWBDEVL     | Section: INF231   | Prof: R. VIADO
+  THURSDAY  | 07:00-09:00 | CCQUAMET     | Section: INF233   | Prof: M. REYES
+  THURSDAY  | 10:00-12:00 | CCDISTR1     | Section: INF246   | Prof: A. VICENTE
+  THURSDAY  | 13:00-15:00 | CCDISTR1     | Section: INF245   | Prof: A. VICENTE
+  THURSDAY  | 17:30-19:30 | CCDISTR1     | Section: INF242   | Prof: A. VICENTE
+  FRIDAY    | 07:00-09:40 | CTADWEBL     | Section: INF221   | Prof: R. VIADO
+  FRIDAY    | 13:00-15:00 | CCDISTR1     | Section: INF246   | Prof: A. VICENTE
+  FRIDAY    | 18:00-20:00 | CCQUAMET     | Section: INF232   | Prof: M. REYES
+  SATURDAY  | 07:30-09:30 | CCDISTR1     | Section: INF244   | Prof: A. VICENTE
+  SATURDAY  | 13:00-15:40 | CCOBJPGL     | Section: INF242   | Prof: M. GALO
+  SATURDAY  | 18:00-20:40 | CCOBJPGL     | Section: INF244   | Prof: M. GALO
+
+Room: 410
+---------
+Total Weekly Hours: 63.4
+Number of Classes: 27
+
+  MONDAY    | 07:00-09:40 | CCOBJPGL     | Section: INF245   | Prof: J. SACDALAN
+  MONDAY    | 07:00-09:40 | CTFDMBSL     | Section: INF235   | Prof: S. LUMBOG
+  MONDAY    | 10:00-12:00 | CCQUAMET     | Section: INF231   | Prof: M. REYES
+  MONDAY    | 13:00-15:40 | CCOBJPGL     | Section: INF247   | Prof: J. SACDALAN
+  MONDAY    | 16:30-18:30 | CCDISTR1     | Section: INF245   | Prof: A. VICENTE
+  MONDAY    | 19:00-21:00 | CCDISTR1     | Section: INF242   | Prof: A. VICENTE
+  TUESDAY   | 07:00-09:40 | CCOBJPGL     | Section: INF241   | Prof: J. SACDALAN
+  TUESDAY   | 07:00-09:40 | CTAINASL     | Section: INF224   | Prof: BUHAIN
+  TUESDAY   | 13:00-15:00 | CCDISTR1     | Section: INF247   | Prof: A. VICENTE
+  TUESDAY   | 17:00-19:40 | CTAINASL     | Section: INF221   | Prof: BUHAIN
+  WEDNESDAY | 07:00-09:00 | CCDISTR1     | Section: INF241   | Prof: A. VICENTE
+  WEDNESDAY | 07:00-09:40 | CTAINASL     | Section: INF222   | Prof: C. TORRES
+  WEDNESDAY | 14:00-16:00 | CCQUAMET     | Section: INF234   | Prof: M. REYES
+  WEDNESDAY | 16:00-18:40 | CCOBJPGL     | Section: INF243   | Prof: J. SACDALAN
+  WEDNESDAY | 19:00-21:00 | CCDISTR1     | Section: INF243   | Prof: A. VICENTE
+  THURSDAY  | 07:00-09:00 | CCDISTR1     | Section: INF241   | Prof: A. VICENTE
+  THURSDAY  | 09:00-11:40 | CTADWEBL     | Section: INF223   | Prof: R. VIADO
+  THURSDAY  | 13:30-16:10 | CTADWEBL     | Section: INF222   | Prof: R. VIADO
+  THURSDAY  | 17:30-20:10 | CTFDMBSL     | Section: INF233   | Prof: S. LUMBOG
+  FRIDAY    | 07:00-09:00 | CCQUAMET     | Section: INF235   | Prof: M. REYES
+  FRIDAY    | 09:30-11:30 | CCQUAMET     | Section: INF234   | Prof: M. REYES
+  FRIDAY    | 14:30-17:10 | CTFDMBSL     | Section: INF232   | Prof: F. ATIENZA
+  FRIDAY    | 19:00-21:00 | CCDISTR1     | Section: INF243   | Prof: A. VICENTE
+  SATURDAY  | 07:00-09:40 | CCOBJPGL     | Section: INF246   | Prof: M. GALO
+  SATURDAY  | 10:00-12:00 | CCQUAMET     | Section: INF231   | Prof: M. REYES
+  SATURDAY  | 14:30-16:30 | CCDISTR1     | Section: INF247   | Prof: A. VICENTE
+  SATURDAY  | 17:00-19:40 | CTFDMBSL     | Section: INF234   | Prof: F. ATIENZA
+
+Room: 431
+---------
+Total Weekly Hours: 53.4
+Number of Classes: 21
+
+  MONDAY    | 08:00-10:40 | CCOBJPGL     | Section: COM242   | Prof: E. RAMIREZ
+  MONDAY    | 13:00-15:40 | CTFDMBSL     | Section: COM232   | Prof: J. BRAVO
+  MONDAY    | 16:30-20:30 | CCPHYS2L     | Section: COM231   | Prof: S. REBUTOC
+  TUESDAY   | 07:00-09:00 | CCALCOMP     | Section: COM231   | Prof: E. RAMIREZ
+  TUESDAY   | 10:00-12:00 | CCQUAMET     | Section: COM231   | Prof: J. BRAVO
+  TUESDAY   | 13:00-15:00 | CCDISTR1     | Section: COM241   | Prof: J. BRAVO
+  TUESDAY   | 16:30-18:30 | CCQUAMET     | Section: COM232   | Prof: J. BRAVO
+  TUESDAY   | 19:00-21:00 | CCALCOMP     | Section: COM232   | Prof: E. RAMIREZ
+  WEDNESDAY | 07:00-11:00 | CCPHYS2L     | Section: COM232   | Prof: S. REBUTOC
+  THURSDAY  | 07:30-09:30 | CCQUAMET     | Section: COM232   | Prof: J. BRAVO
+  THURSDAY  | 10:00-12:00 | CCALCOMP     | Section: COM231   | Prof: E. RAMIREZ
+  THURSDAY  | 15:00-17:00 | CCQUAMET     | Section: COM231   | Prof: J. BRAVO
+  THURSDAY  | 17:30-19:30 | CCDISTR1     | Section: COM241   | Prof: J. BRAVO
+  FRIDAY    | 07:00-09:40 | CTFDMBSL     | Section: COM231   | Prof: J. BRAVO
+  FRIDAY    | 07:00-09:00 | CCALCOMP     | Section: COM232   | Prof: E. RAMIREZ
+  FRIDAY    | 10:00-12:00 | CCDISTR1     | Section: COM242   | Prof: J. BRAVO
+  FRIDAY    | 13:30-16:10 | CCOBJPGL     | Section: COM241   | Prof: E. RAMIREZ
+  FRIDAY    | 17:00-21:00 | CCPHYS2L     | Section: COM232   | Prof: S. REBUTOC
+  SATURDAY  | 07:00-11:00 | CCPHYS2L     | Section: COM231   | Prof: S. REBUTOC
+  SATURDAY  | 13:00-15:00 | CCDISTR1     | Section: COM242   | Prof: J. BRAVO
+  SATURDAY  | 18:00-20:40 | CTAPDEVL     | Section: COM221   | Prof: L. TAVU
+
+Room: 501
+---------
+Total Weekly Hours: 40.0
+Number of Classes: 10
+
+  MONDAY    | 07:30-11:30 | CCINTHCI     | Section: INF221   | Prof: R. GALAPON
+  MONDAY    | 15:30-19:30 | CTADWEBL     | Section: INF221   | Prof: R. VIADO
+  TUESDAY   | 07:00-11:00 | CCINTHCI     | Section: INF223   | Prof: R. GALAPON
+  TUESDAY   | 14:30-18:30 | CTFDMBSL     | Section: INF235   | Prof: S. LUMBOG
+  WEDNESDAY | 08:00-12:00 | CTFDMBSL     | Section: INF234   | Prof: F. ATIENZA
+  THURSDAY  | 07:30-11:30 | CCOBJPGL     | Section: INF243   | Prof: J. SACDALAN
+  FRIDAY    | 07:00-11:00 | CCOBJPGL     | Section: INF242   | Prof: M. GALO
+  FRIDAY    | 15:00-19:00 | CTWBDEVL     | Section: INF235   | Prof: R. VIADO
+  SATURDAY  | 07:00-11:00 | CTADWEBL     | Section: INF222   | Prof: R. VIADO
+  SATURDAY  | 13:00-17:00 | CTWBDEVL     | Section: INF233   | Prof: E. ALINO
+
+Room: 502
+---------
+Total Weekly Hours: 40.0
+Number of Classes: 10
+
+  MONDAY    | 07:30-11:30 | CTFDMBSL     | Section: INF232   | Prof: F. ATIENZA
+  TUESDAY   | 08:00-12:00 | CCOBJPGL     | Section: INF246   | Prof: M. GALO
+  WEDNESDAY | 07:30-11:30 | CTAINASL     | Section: INF221   | Prof: BUHAIN
+  THURSDAY  | 08:00-12:00 | CTWBDEVL     | Section: INF234   | Prof: E. ALINO
+  THURSDAY  | 17:00-21:00 | CTWBDEVL     | Section: INF231   | Prof: R. VIADO
+  FRIDAY    | 07:00-11:00 | CTWBDEVL     | Section: INF232   | Prof: E. ALINO
+  FRIDAY    | 15:30-19:30 | CTAINASL     | Section: INF222   | Prof: C. TORRES
+  SATURDAY  | 08:00-12:00 | CCOBJPGL     | Section: INF247   | Prof: J. SACDALAN
+  SATURDAY  | 13:00-17:00 | CCOBJPGL     | Section: INF241   | Prof: J. SACDALAN
+  SATURDAY  | 17:00-21:00 | CTADWEBL     | Section: INF223   | Prof: R. VIADO
+
+Room: 503
+---------
+Total Weekly Hours: 24.0
+Number of Classes: 9
+
+  MONDAY    | 13:30-16:10 | MCFIT03X     | Section: INF242   | Prof: TBA
+  MONDAY    | 17:00-19:40 | MCFIT03X     | Section: INF246   | Prof: TBA
+  TUESDAY   | 07:00-09:40 | MCFIT03X     | Section: COM242   | Prof: TBA
+  TUESDAY   | 13:00-15:40 | MCFIT03X     | Section: INF244   | Prof: TBA
+  TUESDAY   | 17:00-19:40 | MCFIT03X     | Section: INF247   | Prof: TBA
+  THURSDAY  | 14:30-17:10 | MCFIT03X     | Section: COM241   | Prof: TBA
+  THURSDAY  | 18:00-20:40 | MCFIT03X     | Section: INF241   | Prof: TBA
+  FRIDAY    | 14:30-17:10 | MCFIT03X     | Section: INF243   | Prof: TBA
+  SATURDAY  | 08:30-11:10 | MCFIT03X     | Section: INF245   | Prof: TBA
+
+Room: 504
+---------
+Total Weekly Hours: 40.0
+Number of Classes: 11
+
+  MONDAY    | 08:00-12:00 | CTAINASL     | Section: INF223   | Prof: J. ABAO
+  MONDAY    | 16:00-20:00 | CCINTHCI     | Section: INF222   | Prof: A. CAMACHO
+  TUESDAY   | 13:30-16:10 | CTBASNTL     | Section: INF232   | Prof: A. CAMACHO
+  WEDNESDAY | 14:30-18:30 | CTBASNTL     | Section: INF232   | Prof: A. CAMACHO
+  THURSDAY  | 07:00-11:00 | CCOBJPGL     | Section: INF244   | Prof: M. GALO
+  THURSDAY  | 14:30-17:10 | CTBASNTL     | Section: INF234   | Prof: A. CAMACHO
+  FRIDAY    | 07:00-11:00 | CTBASNTL     | Section: INF231   | Prof: R. GALAPON
+  FRIDAY    | 14:30-18:30 | CCOBJPGL     | Section: INF245   | Prof: J. SACDALAN
+  SATURDAY  | 07:00-11:00 | CTBASNTL     | Section: INF234   | Prof: A. CAMACHO
+  SATURDAY  | 13:30-16:10 | CTBASNTL     | Section: INF231   | Prof: R. GALAPON
+  SATURDAY  | 16:30-20:30 | CTAINASL     | Section: INF224   | Prof: BUHAIN
+
+Room: 505
+---------
+Total Weekly Hours: 40.0
+Number of Classes: 10
+
+  MONDAY    | 07:00-11:00 | CTFDMBSL     | Section: COM231   | Prof: J. BRAVO
+  MONDAY    | 15:30-19:30 | CCOBJPGL     | Section: COM241   | Prof: E. RAMIREZ
+  TUESDAY   | 16:00-20:00 | CTAPDEVL     | Section: COM221   | Prof: L. TAVU
+  WEDNESDAY | 07:00-11:00 | CTADWEBL     | Section: INF224   | Prof: R. VIADO
+  WEDNESDAY | 14:30-18:30 | CTFDMBSL     | Section: COM232   | Prof: J. BRAVO
+  THURSDAY  | 08:00-12:00 | CCINTHCI     | Section: INF224   | Prof: A. CAMACHO
+  THURSDAY  | 17:00-21:00 | CCINTHCI     | Section: COM221   | Prof: E. RAMIREZ
+  FRIDAY    | 07:00-11:00 | CTFDMBSL     | Section: INF233   | Prof: S. LUMBOG
+  FRIDAY    | 16:30-20:30 | CCOBJPGL     | Section: COM242   | Prof: E. RAMIREZ
+  SATURDAY  | 07:00-11:00 | CTFDMBSL     | Section: INF231   | Prof: S. LUMBOG
+
+Room: 534
+---------
+Total Weekly Hours: 26.7
+Number of Classes: 8
+
+  MONDAY    | 08:00-12:00 | CTBASNTL     | Section: COM232   | Prof: M. ZUNIGA
+  TUESDAY   | 16:00-20:00 | CTBASNTL     | Section: COM231   | Prof: M. ZUNIGA
+  WEDNESDAY | 07:00-11:00 | CTBASNTL     | Section: INF233   | Prof: R. GALAPON
+  WEDNESDAY | 17:30-20:10 | CTBASNTL     | Section: COM231   | Prof: M. ZUNIGA
+  THURSDAY  | 08:00-12:00 | CTBASNTL     | Section: INF235   | Prof: M. ZUNIGA
+  THURSDAY  | 14:30-17:10 | CTBASNTL     | Section: COM232   | Prof: M. ZUNIGA
+  FRIDAY    | 16:00-18:40 | CTBASNTL     | Section: INF233   | Prof: R. GALAPON
+  SATURDAY  | 08:00-10:40 | CTBASNTL     | Section: INF235   | Prof: M. ZUNIGA
+
+ONLINE CLASSES
+===============
+Classes that don't require a physical room:
+
+  MONDAY    | 07:00-09:00 | CTAPROJ1     | Section: INF224   | Prof: E. ALINO
+  MONDAY    | 07:30-09:30 | GENAT01R     | Section: INF246   | Prof: BA ESTRADA
+  MONDAY    | 08:00-10:00 | MNSTP02X     | Section: COM241   | Prof: TBA
+  MONDAY    | 09:00-11:00 | GENAT01R     | Section: INF242   | Prof: T. MAGSINO
+  MONDAY    | 09:00-11:00 | GEETH01X     | Section: INF247   | Prof: E. LAGOS
+  MONDAY    | 09:30-11:30 | MNSTP02X     | Section: INF246   | Prof: TBA
+  MONDAY    | 15:30-17:30 | GEETH01X     | Section: COM242   | Prof: M.J QUILITAN
+  MONDAY    | 16:30-18:30 | GEETH01X     | Section: INF241   | Prof: D. URGELLES
+  MONDAY    | 17:00-19:00 | GEETH01X     | Section: INF242   | Prof: N. UMPAR
+  MONDAY    | 18:30-20:30 | GENAT01R     | Section: COM242   | Prof: C. SANTIAGO
+  TUESDAY   | 07:00-09:00 | CTAPROJ1     | Section: INF222   | Prof: E. ALINO
+  TUESDAY   | 08:00-10:00 | GEETH01X     | Section: INF244   | Prof: M.J QUILITAN
+  TUESDAY   | 10:00-12:00 | MNSTP02X     | Section: INF241   | Prof: TBA
+  TUESDAY   | 10:00-12:00 | MNSTP02X     | Section: INF244   | Prof: TBA
+  TUESDAY   | 14:00-16:00 | MNSTP02X     | Section: INF243   | Prof: TBA
+  TUESDAY   | 14:00-16:00 | GEETH01X     | Section: INF246   | Prof: D. URGELLES
+  TUESDAY   | 15:00-17:00 | GENAT01R     | Section: INF245   | Prof: Z. PENUS
+  TUESDAY   | 16:00-18:00 | GENAT01R     | Section: COM241   | Prof: G. BAYRAN
+  TUESDAY   | 16:30-18:30 | GENAT01R     | Section: INF241   | Prof: EJ LAYUG
+  TUESDAY   | 16:30-18:30 | GENAT01R     | Section: INF246   | Prof: BA ESTRADA
+  TUESDAY   | 18:00-20:00 | GEETH01X     | Section: COM241   | Prof: JA LIBUNAO
+  TUESDAY   | 18:30-20:30 | GENAT01R     | Section: INF244   | Prof: D. CONDEZ
+  TUESDAY   | 18:30-20:30 | GEETH01X     | Section: INF245   | Prof: N. UMPAR
+  TUESDAY   | 19:00-21:00 | GEETH01X     | Section: INF243   | Prof: A. CABRERA
+  WEDNESDAY | 07:00-09:00 | MNSTP02X     | Section: INF245   | Prof: TBA
+  WEDNESDAY | 07:00-09:00 | GENAT01R     | Section: INF247   | Prof: EJ LAYUG
+  WEDNESDAY | 10:00-12:00 | GEETH01X     | Section: COM242   | Prof: M.J QUILITAN
+  WEDNESDAY | 10:00-12:00 | MNSTP02X     | Section: INF241   | Prof: TBA
+  WEDNESDAY | 10:00-12:00 | CTAPROJ1     | Section: INF223   | Prof: J. SACDALAN
+  WEDNESDAY | 13:00-15:00 | GENAT01R     | Section: INF243   | Prof: E. LAGOS
+  WEDNESDAY | 13:00-15:00 | MNSTP02X     | Section: INF246   | Prof: TBA
+  WEDNESDAY | 15:00-17:00 | MNSTP02X     | Section: COM242   | Prof: TBA
+  WEDNESDAY | 15:00-17:00 | GEETH01X     | Section: INF241   | Prof: D. URGELLES
+  WEDNESDAY | 15:00-17:00 | GEETH01X     | Section: INF242   | Prof: N. UMPAR
+  WEDNESDAY | 17:30-19:30 | MNSTP02X     | Section: INF242   | Prof: TBA
+  WEDNESDAY | 18:30-20:30 | GENAT01R     | Section: INF241   | Prof: EJ LAYUG
+  THURSDAY  | 07:00-09:00 | MNSTP02X     | Section: COM241   | Prof: TBA
+  THURSDAY  | 09:30-11:30 | GEETH01X     | Section: COM241   | Prof: JA LIBUNAO
+  THURSDAY  | 10:00-12:00 | GENAT01R     | Section: COM242   | Prof: C. SANTIAGO
+  THURSDAY  | 13:00-15:00 | CTAPROJ1     | Section: INF223   | Prof: J. SACDALAN
+  THURSDAY  | 15:30-17:30 | GENAT01R     | Section: INF245   | Prof: Z. PENUS
+  THURSDAY  | 17:00-19:00 | CTAPROJ1     | Section: INF221   | Prof: E. ALINO
+  THURSDAY  | 17:30-19:30 | GEETH01X     | Section: INF243   | Prof: A. CABRERA
+  FRIDAY    | 07:00-09:00 | MNSTP02X     | Section: INF247   | Prof: TBA
+  FRIDAY    | 09:00-11:00 | MNSTP02X     | Section: INF243   | Prof: TBA
+  FRIDAY    | 09:00-11:00 | MNSTP02X     | Section: INF245   | Prof: TBA
+  FRIDAY    | 09:30-11:30 | GENAT01R     | Section: INF247   | Prof: EJ LAYUG
+  FRIDAY    | 10:00-12:00 | GENAT01R     | Section: INF244   | Prof: D. CONDEZ
+  FRIDAY    | 13:00-15:00 | GEETH01X     | Section: INF244   | Prof: JA LIBUNAO
+  FRIDAY    | 15:00-17:00 | GEETH01X     | Section: INF247   | Prof: E. LAGOS
+  FRIDAY    | 15:30-17:30 | GENAT01R     | Section: INF242   | Prof: T. MAGSINO
+  FRIDAY    | 17:30-19:30 | GEETH01X     | Section: INF246   | Prof: D. URGELLES
+  FRIDAY    | 18:00-20:00 | CTAPROJ1     | Section: INF224   | Prof: E. ALINO
+  FRIDAY    | 18:30-20:30 | MNSTP02X     | Section: INF242   | Prof: TBA
+  SATURDAY  | 07:00-09:00 | GENAT01R     | Section: INF243   | Prof: E. LAGOS
+  SATURDAY  | 10:00-12:00 | GENAT01R     | Section: COM241   | Prof: G. BAYRAN
+  SATURDAY  | 10:00-12:00 | CTAPROJ1     | Section: INF221   | Prof: E. ALINO
+  SATURDAY  | 13:00-15:00 | MNSTP02X     | Section: INF244   | Prof: TBA
+  SATURDAY  | 17:00-19:00 | MNSTP02X     | Section: COM242   | Prof: TBA
+  SATURDAY  | 18:00-20:00 | GEETH01X     | Section: INF245   | Prof: N. UMPAR
+  SATURDAY  | 18:30-20:30 | CTAPROJ1     | Section: INF222   | Prof: E. ALINO
+  SATURDAY  | 19:00-21:00 | MNSTP02X     | Section: INF247   | Prof: TBA

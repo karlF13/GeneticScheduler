@@ -1,0 +1,300 @@
+============================================================
+AUTOMATED SCHEDULE REPORT
+Generated on: 2025-06-08 23:27:03
+============================================================
+
+SCHEDULE SUMMARY
+--------------------
+Fitness Score: 0.1890
+Total Penalty: 4290
+
+PENALTY BREAKDOWN
+--------------------
+Professor Conflicts      : 400
+Room Conflicts           : 500
+Time Window              : 0
+Same Subject Same Day    : 0
+Break Constraints        : 0
+Subject Spacing          : 900
+Subject Room             : 60
+Professor Breaks         : 150
+Wed Sat Constraints      : 2280
+
+DETAILED SCHEDULE BY SECTION
+========================================
+
+Section COM221
+--------------
+  TUESDAY   | 16:00-20:00 | CTAPDEVL     (1) | Prof: L. TAVU              | Room: 505
+  THURSDAY  | 17:00-21:00 | CCINTHCI     (1) | Prof: E. RAMIREZ           | Room: 505
+  SATURDAY  | 18:00-20:40 | CTAPDEVL     (2) | Prof: L. TAVU              | Room: 431
+
+Section COM231
+--------------
+  MONDAY    | 07:00-11:00 | CTFDMBSL     (1) | Prof: J. BRAVO             | Room: 505
+  MONDAY    | 16:30-20:30 | CCPHYS2L     (1) | Prof: S. REBUTOC           | Room: 431
+  TUESDAY   | 07:00-09:00 | CCALCOMP     (2) | Prof: E. RAMIREZ           | Room: 431
+  TUESDAY   | 10:00-12:00 | CCQUAMET     (1) | Prof: J. BRAVO             | Room: 431
+  TUESDAY   | 16:00-20:00 | CTBASNTL     (1) | Prof: M. ZUNIGA            | Room: 534
+  WEDNESDAY | 17:30-20:10 | CTBASNTL     (2) | Prof: M. ZUNIGA            | Room: 534
+  THURSDAY  | 10:00-12:00 | CCALCOMP     (1) | Prof: E. RAMIREZ           | Room: 431
+  THURSDAY  | 15:00-17:00 | CCQUAMET     (2) | Prof: J. BRAVO             | Room: 431
+  FRIDAY    | 07:00-09:40 | CTFDMBSL     (2) | Prof: J. BRAVO             | Room: 431
+  SATURDAY  | 07:00-11:00 | CCPHYS2L     (2) | Prof: S. REBUTOC           | Room: 431
+
+Section COM232
+--------------
+  MONDAY    | 08:00-12:00 | CTBASNTL     (1) | Prof: M. ZUNIGA            | Room: 534
+  MONDAY    | 13:00-15:40 | CTFDMBSL     (2) | Prof: J. BRAVO             | Room: 431
+  TUESDAY   | 16:30-18:30 | CCQUAMET     (1) | Prof: J. BRAVO             | Room: 431
+  TUESDAY   | 19:00-21:00 | CCALCOMP     (2) | Prof: E. RAMIREZ           | Room: 431
+  WEDNESDAY | 07:00-11:00 | CCPHYS2L     (1) | Prof: S. REBUTOC           | Room: 431
+  WEDNESDAY | 14:30-18:30 | CTFDMBSL     (1) | Prof: J. BRAVO             | Room: 505
+  THURSDAY  | 07:30-09:30 | CCQUAMET     (2) | Prof: J. BRAVO             | Room: 431
+  THURSDAY  | 14:30-17:10 | CTBASNTL     (2) | Prof: M. ZUNIGA            | Room: 534
+  FRIDAY    | 07:00-09:00 | CCALCOMP     (1) | Prof: E. RAMIREZ           | Room: 431
+  FRIDAY    | 17:00-21:00 | CCPHYS2L     (2) | Prof: S. REBUTOC           | Room: 431
+
+Section COM241
+--------------
+  MONDAY    | 08:00-10:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  MONDAY    | 15:30-19:30 | CCOBJPGL     (1) | Prof: E. RAMIREZ           | Room: 505
+  TUESDAY   | 13:00-15:00 | CCDISTR1     (2) | Prof: J. BRAVO             | Room: 431
+  TUESDAY   | 16:00-18:00 | GENAT01R     (2) | Prof: G. BAYRAN            | Online
+  TUESDAY   | 18:00-20:00 | GEETH01X     (1) | Prof: JA LIBUNAO           | Online
+  THURSDAY  | 07:00-09:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  THURSDAY  | 09:30-11:30 | GEETH01X     (2) | Prof: JA LIBUNAO           | Online
+  THURSDAY  | 14:30-17:10 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  THURSDAY  | 17:30-19:30 | CCDISTR1     (1) | Prof: J. BRAVO             | Room: 431
+  FRIDAY    | 13:30-16:10 | CCOBJPGL     (2) | Prof: E. RAMIREZ           | Room: 431
+  SATURDAY  | 10:00-12:00 | GENAT01R     (1) | Prof: G. BAYRAN            | Online
+
+Section COM242
+--------------
+  MONDAY    | 08:00-10:40 | CCOBJPGL     (2) | Prof: E. RAMIREZ           | Room: 431
+  MONDAY    | 15:30-17:30 | GEETH01X     (2) | Prof: M.J QUILITAN         | Online
+  MONDAY    | 18:30-20:30 | GENAT01R     (2) | Prof: C. SANTIAGO          | Online
+  TUESDAY   | 07:00-09:40 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  WEDNESDAY | 10:00-12:00 | GEETH01X     (1) | Prof: M.J QUILITAN         | Online
+  WEDNESDAY | 15:00-17:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  THURSDAY  | 10:00-12:00 | GENAT01R     (1) | Prof: C. SANTIAGO          | Online
+  FRIDAY    | 10:00-12:00 | CCDISTR1     (1) | Prof: J. BRAVO             | Room: 431
+  FRIDAY    | 16:30-20:30 | CCOBJPGL     (1) | Prof: E. RAMIREZ           | Room: 505
+  SATURDAY  | 13:00-15:00 | CCDISTR1     (2) | Prof: J. BRAVO             | Room: 431
+  SATURDAY  | 17:00-19:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+
+Section INF221
+--------------
+  MONDAY    | 07:30-11:30 | CCINTHCI     (1) | Prof: R. GALAPON           | Room: 501
+  MONDAY    | 15:30-19:30 | CTADWEBL     (2) | Prof: R. VIADO             | Room: 501
+  TUESDAY   | 17:00-19:40 | CTAINASL     (1) | Prof: BUHAIN               | Room: 410
+  WEDNESDAY | 07:30-11:30 | CTAINASL     (2) | Prof: BUHAIN               | Room: 502
+  THURSDAY  | 17:00-19:00 | CTAPROJ1     (2) | Prof: E. ALINO             | Online
+  FRIDAY    | 07:00-09:40 | CTADWEBL     (1) | Prof: R. VIADO             | Room: 407
+  SATURDAY  | 10:00-12:00 | CTAPROJ1     (1) | Prof: E. ALINO             | Online
+
+Section INF222
+--------------
+  MONDAY    | 16:00-20:00 | CCINTHCI     (1) | Prof: A. CAMACHO           | Room: 504
+  TUESDAY   | 07:00-09:00 | CTAPROJ1     (2) | Prof: E. ALINO             | Online
+  WEDNESDAY | 07:00-09:40 | CTAINASL     (1) | Prof: C. TORRES            | Room: 410
+  THURSDAY  | 13:30-16:10 | CTADWEBL     (1) | Prof: R. VIADO             | Room: 410
+  FRIDAY    | 15:30-19:30 | CTAINASL     (2) | Prof: C. TORRES            | Room: 502
+  SATURDAY  | 07:00-11:00 | CTADWEBL     (2) | Prof: R. VIADO             | Room: 501
+  SATURDAY  | 18:30-20:30 | CTAPROJ1     (1) | Prof: E. ALINO             | Online
+
+Section INF223
+--------------
+  MONDAY    | 08:00-12:00 | CTAINASL     (2) | Prof: J. ABAO              | Room: 504
+  TUESDAY   | 07:00-11:00 | CCINTHCI     (1) | Prof: R. GALAPON           | Room: 501
+  TUESDAY   | 13:30-16:10 | CTAINASL     (1) | Prof: J. ABAO              | Room: 407
+  WEDNESDAY | 10:00-12:00 | CTAPROJ1     (1) | Prof: J. SACDALAN          | Online
+  THURSDAY  | 09:00-11:40 | CTADWEBL     (1) | Prof: R. VIADO             | Room: 410
+  THURSDAY  | 13:00-15:00 | CTAPROJ1     (2) | Prof: J. SACDALAN          | Online
+  SATURDAY  | 17:00-21:00 | CTADWEBL     (2) | Prof: R. VIADO             | Room: 502
+
+Section INF224
+--------------
+  MONDAY    | 07:00-09:00 | CTAPROJ1     (2) | Prof: E. ALINO             | Online
+  MONDAY    | 09:00-11:40 | CTADWEBL     (1) | Prof: R. VIADO             | Room: 407
+  TUESDAY   | 07:00-09:40 | CTAINASL     (1) | Prof: BUHAIN               | Room: 410
+  WEDNESDAY | 07:00-11:00 | CTADWEBL     (2) | Prof: R. VIADO             | Room: 505
+  THURSDAY  | 08:00-12:00 | CCINTHCI     (1) | Prof: A. CAMACHO           | Room: 505
+  FRIDAY    | 18:00-20:00 | CTAPROJ1     (1) | Prof: E. ALINO             | Online
+  SATURDAY  | 16:30-20:30 | CTAINASL     (2) | Prof: BUHAIN               | Room: 504
+
+Section INF231
+--------------
+  MONDAY    | 10:00-12:00 | CCQUAMET     (1) | Prof: M. REYES             | Room: 410
+  TUESDAY   | 07:00-09:40 | CTFDMBSL     (2) | Prof: S. LUMBOG            | Room: 407
+  WEDNESDAY | 17:30-20:10 | CTWBDEVL     (2) | Prof: R. VIADO             | Room: 407
+  THURSDAY  | 17:00-21:00 | CTWBDEVL     (1) | Prof: R. VIADO             | Room: 502
+  FRIDAY    | 07:00-11:00 | CTBASNTL     (1) | Prof: R. GALAPON           | Room: 504
+  SATURDAY  | 07:00-11:00 | CTFDMBSL     (1) | Prof: S. LUMBOG            | Room: 505
+  SATURDAY  | 10:00-12:00 | CCQUAMET     (2) | Prof: M. REYES             | Room: 410
+  SATURDAY  | 13:30-16:10 | CTBASNTL     (2) | Prof: R. GALAPON           | Room: 504
+
+Section INF232
+--------------
+  MONDAY    | 07:30-11:30 | CTFDMBSL     (1) | Prof: F. ATIENZA           | Room: 502
+  TUESDAY   | 13:30-16:10 | CTBASNTL     (2) | Prof: A. CAMACHO           | Room: 504
+  TUESDAY   | 16:30-18:30 | CCQUAMET     (1) | Prof: M. REYES             | Room: 407
+  WEDNESDAY | 07:00-09:40 | CTWBDEVL     (2) | Prof: E. ALINO             | Room: 407
+  WEDNESDAY | 14:30-18:30 | CTBASNTL     (1) | Prof: A. CAMACHO           | Room: 504
+  FRIDAY    | 07:00-11:00 | CTWBDEVL     (1) | Prof: E. ALINO             | Room: 502
+  FRIDAY    | 14:30-17:10 | CTFDMBSL     (2) | Prof: F. ATIENZA           | Room: 410
+  FRIDAY    | 18:00-20:00 | CCQUAMET     (2) | Prof: M. REYES             | Room: 407
+
+Section INF233
+--------------
+  MONDAY    | 18:00-20:00 | CCQUAMET     (1) | Prof: M. REYES             | Room: 407
+  WEDNESDAY | 07:00-11:00 | CTBASNTL     (1) | Prof: R. GALAPON           | Room: 534
+  WEDNESDAY | 13:00-15:40 | CTWBDEVL     (2) | Prof: E. ALINO             | Room: 407
+  THURSDAY  | 07:00-09:00 | CCQUAMET     (2) | Prof: M. REYES             | Room: 407
+  THURSDAY  | 17:30-20:10 | CTFDMBSL     (2) | Prof: S. LUMBOG            | Room: 410
+  FRIDAY    | 07:00-11:00 | CTFDMBSL     (1) | Prof: S. LUMBOG            | Room: 505
+  FRIDAY    | 16:00-18:40 | CTBASNTL     (2) | Prof: R. GALAPON           | Room: 534
+  SATURDAY  | 13:00-17:00 | CTWBDEVL     (1) | Prof: E. ALINO             | Room: 501
+
+Section INF234
+--------------
+  MONDAY    | 14:00-16:40 | CTWBDEVL     (2) | Prof: E. ALINO             | Room: 407
+  WEDNESDAY | 08:00-12:00 | CTFDMBSL     (1) | Prof: F. ATIENZA           | Room: 501
+  WEDNESDAY | 14:00-16:00 | CCQUAMET     (1) | Prof: M. REYES             | Room: 410
+  THURSDAY  | 08:00-12:00 | CTWBDEVL     (1) | Prof: E. ALINO             | Room: 502
+  THURSDAY  | 14:30-17:10 | CTBASNTL     (2) | Prof: A. CAMACHO           | Room: 504
+  FRIDAY    | 09:30-11:30 | CCQUAMET     (2) | Prof: M. REYES             | Room: 410
+  SATURDAY  | 07:00-11:00 | CTBASNTL     (1) | Prof: A. CAMACHO           | Room: 504
+  SATURDAY  | 17:00-19:40 | CTFDMBSL     (2) | Prof: F. ATIENZA           | Room: 410
+
+Section INF235
+--------------
+  MONDAY    | 07:00-09:40 | CTFDMBSL     (2) | Prof: S. LUMBOG            | Room: 410
+  TUESDAY   | 07:00-09:40 | CTWBDEVL     (2) | Prof: R. VIADO             | Room: 407
+  TUESDAY   | 10:00-12:00 | CCQUAMET     (1) | Prof: M. REYES             | Room: 407
+  TUESDAY   | 14:30-18:30 | CTFDMBSL     (1) | Prof: S. LUMBOG            | Room: 501
+  THURSDAY  | 08:00-12:00 | CTBASNTL     (1) | Prof: M. ZUNIGA            | Room: 534
+  FRIDAY    | 07:00-09:00 | CCQUAMET     (2) | Prof: M. REYES             | Room: 410
+  FRIDAY    | 15:00-19:00 | CTWBDEVL     (1) | Prof: R. VIADO             | Room: 501
+  SATURDAY  | 08:00-10:40 | CTBASNTL     (2) | Prof: M. ZUNIGA            | Room: 534
+
+Section INF241
+--------------
+  MONDAY    | 16:30-18:30 | GEETH01X     (1) | Prof: D. URGELLES          | Online
+  TUESDAY   | 07:00-09:40 | CCOBJPGL     (2) | Prof: J. SACDALAN          | Room: 410
+  TUESDAY   | 10:00-12:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  TUESDAY   | 16:30-18:30 | GENAT01R     (2) | Prof: EJ LAYUG             | Online
+  WEDNESDAY | 07:00-09:00 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 410
+  WEDNESDAY | 10:00-12:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  WEDNESDAY | 15:00-17:00 | GEETH01X     (2) | Prof: D. URGELLES          | Online
+  WEDNESDAY | 18:30-20:30 | GENAT01R     (1) | Prof: EJ LAYUG             | Online
+  THURSDAY  | 07:00-09:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 410
+  THURSDAY  | 18:00-20:40 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  SATURDAY  | 13:00-17:00 | CCOBJPGL     (1) | Prof: J. SACDALAN          | Room: 502
+
+Section INF242
+--------------
+  MONDAY    | 09:00-11:00 | GENAT01R     (1) | Prof: T. MAGSINO           | Online
+  MONDAY    | 13:30-16:10 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  MONDAY    | 17:00-19:00 | GEETH01X     (2) | Prof: N. UMPAR             | Online
+  MONDAY    | 19:00-21:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 410
+  WEDNESDAY | 15:00-17:00 | GEETH01X     (1) | Prof: N. UMPAR             | Online
+  WEDNESDAY | 17:30-19:30 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  THURSDAY  | 17:30-19:30 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 407
+  FRIDAY    | 07:00-11:00 | CCOBJPGL     (1) | Prof: M. GALO              | Room: 501
+  FRIDAY    | 15:30-17:30 | GENAT01R     (2) | Prof: T. MAGSINO           | Online
+  FRIDAY    | 18:30-20:30 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  SATURDAY  | 13:00-15:40 | CCOBJPGL     (2) | Prof: M. GALO              | Room: 407
+
+Section INF243
+--------------
+  TUESDAY   | 14:00-16:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  TUESDAY   | 19:00-21:00 | GEETH01X     (1) | Prof: A. CABRERA           | Online
+  WEDNESDAY | 13:00-15:00 | GENAT01R     (1) | Prof: E. LAGOS             | Online
+  WEDNESDAY | 16:00-18:40 | CCOBJPGL     (2) | Prof: J. SACDALAN          | Room: 410
+  WEDNESDAY | 19:00-21:00 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 410
+  THURSDAY  | 07:30-11:30 | CCOBJPGL     (1) | Prof: J. SACDALAN          | Room: 501
+  THURSDAY  | 17:30-19:30 | GEETH01X     (2) | Prof: A. CABRERA           | Online
+  FRIDAY    | 09:00-11:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  FRIDAY    | 14:30-17:10 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  FRIDAY    | 19:00-21:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 410
+  SATURDAY  | 07:00-09:00 | GENAT01R     (2) | Prof: E. LAGOS             | Online
+
+Section INF244
+--------------
+  MONDAY    | 07:00-09:00 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 407
+  TUESDAY   | 08:00-10:00 | GEETH01X     (1) | Prof: M.J QUILITAN         | Online
+  TUESDAY   | 10:00-12:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  TUESDAY   | 13:00-15:40 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  TUESDAY   | 18:30-20:30 | GENAT01R     (2) | Prof: D. CONDEZ            | Online
+  THURSDAY  | 07:00-11:00 | CCOBJPGL     (1) | Prof: M. GALO              | Room: 504
+  FRIDAY    | 10:00-12:00 | GENAT01R     (1) | Prof: D. CONDEZ            | Online
+  FRIDAY    | 13:00-15:00 | GEETH01X     (2) | Prof: JA LIBUNAO           | Online
+  SATURDAY  | 07:30-09:30 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 407
+  SATURDAY  | 13:00-15:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  SATURDAY  | 18:00-20:40 | CCOBJPGL     (2) | Prof: M. GALO              | Room: 407
+
+Section INF245
+--------------
+  MONDAY    | 07:00-09:40 | CCOBJPGL     (2) | Prof: J. SACDALAN          | Room: 410
+  MONDAY    | 16:30-18:30 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 410
+  TUESDAY   | 15:00-17:00 | GENAT01R     (1) | Prof: Z. PENUS             | Online
+  TUESDAY   | 18:30-20:30 | GEETH01X     (2) | Prof: N. UMPAR             | Online
+  WEDNESDAY | 07:00-09:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  THURSDAY  | 13:00-15:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 407
+  THURSDAY  | 15:30-17:30 | GENAT01R     (2) | Prof: Z. PENUS             | Online
+  FRIDAY    | 09:00-11:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  FRIDAY    | 14:30-18:30 | CCOBJPGL     (1) | Prof: J. SACDALAN          | Room: 504
+  SATURDAY  | 08:30-11:10 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  SATURDAY  | 18:00-20:00 | GEETH01X     (1) | Prof: N. UMPAR             | Online
+
+Section INF246
+--------------
+  MONDAY    | 07:30-09:30 | GENAT01R     (1) | Prof: BA ESTRADA           | Online
+  MONDAY    | 09:30-11:30 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+  MONDAY    | 17:00-19:40 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  TUESDAY   | 08:00-12:00 | CCOBJPGL     (1) | Prof: M. GALO              | Room: 502
+  TUESDAY   | 14:00-16:00 | GEETH01X     (1) | Prof: D. URGELLES          | Online
+  TUESDAY   | 16:30-18:30 | GENAT01R     (2) | Prof: BA ESTRADA           | Online
+  WEDNESDAY | 13:00-15:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  THURSDAY  | 10:00-12:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 407
+  FRIDAY    | 13:00-15:00 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 407
+  FRIDAY    | 17:30-19:30 | GEETH01X     (2) | Prof: D. URGELLES          | Online
+  SATURDAY  | 07:00-09:40 | CCOBJPGL     (2) | Prof: M. GALO              | Room: 410
+
+Section INF247
+--------------
+  MONDAY    | 09:00-11:00 | GEETH01X     (1) | Prof: E. LAGOS             | Online
+  MONDAY    | 13:00-15:40 | CCOBJPGL     (2) | Prof: J. SACDALAN          | Room: 410
+  TUESDAY   | 13:00-15:00 | CCDISTR1     (2) | Prof: A. VICENTE           | Room: 410
+  TUESDAY   | 17:00-19:40 | MCFIT03X     (1) | Prof: TBA (No qualified professor) | Room: 503
+  WEDNESDAY | 07:00-09:00 | GENAT01R     (2) | Prof: EJ LAYUG             | Online
+  FRIDAY    | 07:00-09:00 | MNSTP02X     (2) | Prof: TBA (No qualified professor) | Online
+  FRIDAY    | 09:30-11:30 | GENAT01R     (1) | Prof: EJ LAYUG             | Online
+  FRIDAY    | 15:00-17:00 | GEETH01X     (2) | Prof: E. LAGOS             | Online
+  SATURDAY  | 08:00-12:00 | CCOBJPGL     (1) | Prof: J. SACDALAN          | Room: 502
+  SATURDAY  | 14:30-16:30 | CCDISTR1     (1) | Prof: A. VICENTE           | Room: 410
+  SATURDAY  | 19:00-21:00 | MNSTP02X     (1) | Prof: TBA (No qualified professor) | Online
+
+SUBJECTS REQUIRING PROFESSOR ASSIGNMENT
+========================================
+The following subjects have been scheduled but need professors to be assigned:
+
+  - MCFIT03X
+  - MNSTP02X
+
+Total subjects needing professors: 2
+
+SCHEDULE STATISTICS
+--------------------
+Total Classes Scheduled: 190
+Total Sections: 21
+Average Classes per Section: 9.0
+
+Classes by Day:
+  FRIDAY: 33 classes
+  MONDAY: 33 classes
+  SATURDAY: 29 classes
+  THURSDAY: 30 classes
+  TUESDAY: 37 classes
+  WEDNESDAY: 28 classes

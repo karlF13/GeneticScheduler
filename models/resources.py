@@ -19,7 +19,7 @@ class Day(Enum):
     THURSDAY = 3
     FRIDAY = 4
     SATURDAY = 5
-    SUNDAY = 6
+
     #Wednesday skipped (no classes on wednesdays)
 
 @dataclass
@@ -33,7 +33,7 @@ class SessionTemplate:
 class Room:
     id: str                     # Unique room ID (e.g., "431")
     capacity: int               # Maximum number of students the room can accommodate
-    room_type: SessionType      # Type of room (must match the session type)
+    room_type: List[SessionType]      # Type of room (must match the session type)
     preferred_courses: Optional[List[str]] = None
 
 @dataclass

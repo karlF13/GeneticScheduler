@@ -1,6 +1,7 @@
 # main.py
 from data.data import create_sample_data
 from algorithm.genetic import GeneticAlgorithm
+from sched_to_txt_file import print_schedule_to_file, print_schedule_by_professor_to_file, print_schedule_by_room_to_file
 
 if __name__ == "__main__":
     sections, subjects, professors, rooms = create_sample_data()
@@ -21,3 +22,6 @@ if __name__ == "__main__":
     best_schedule, fitness_History = scheduler.evolve()
 
     scheduler.print_schedule(best_schedule)
+    print_schedule_to_file(best_schedule)
+    print_schedule_by_room_to_file(best_schedule)
+    print_schedule_by_professor_to_file(best_schedule)
