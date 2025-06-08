@@ -55,6 +55,7 @@ class GeneticAlgorithm:
         self.subject_dict = {s.id: s for s in subjects}
         self.professor_dict = {p.id: p for p in professors}
         self.room_dict = {r.id: r for r in rooms}
+        self.section_dict = {s.id: s for s in sections}
 
         # Available time slots
         self.time_slots = self._generate_time_slots()
@@ -224,16 +225,19 @@ class GeneticAlgorithm:
         else:
             self.mutation_rate = max(0.05, self.initial_mutation_rate * 0.8)
 
-    def _get_qualified_professors(self, subject_id: str) -> List[Professor]:
+    def _get_qualified_professors(self, subject_id: str, section_id: str) -> List[Professor]:
         """Get professors qualified to teach a specific subject"""
-        return [p for p in self.professors if subject_id in p.subjects]
+
+        return [p for p in self.professors if subject_id in p.subjects and self.section_dict[section_id].course in p.course]
 
     def _get_suitable_rooms(self, session_type: SessionType, course: str) -> List[Room]:
         """Get rooms suitable for a specific session type and course"""
         suitable_rooms = []
+
         for room in self.rooms:
             if room.room_type == session_type:
                 if room.preferred_courses is None or course in room.preferred_courses:
+
                     suitable_rooms.append(room)
         return suitable_rooms
 
@@ -346,7 +350,7 @@ class GeneticAlgorithm:
 
             for subject_id, session_template in all_sessions:
                 # Get qualified professors
-                qualified_profs = self._get_qualified_professors(subject_id)
+                qualified_profs = self._get_qualified_professors(subject_id, section.id)
 
                 # Select professor (or TBA if none available)
                 if qualified_profs:
@@ -520,7 +524,7 @@ class GeneticAlgorithm:
                 subject = self.subject_dict[subject_id]
 
                 for session_template in subject.sessions:
-                    qualified_profs = self._get_qualified_professors(subject_id)
+                    qualified_profs = self._get_qualified_professors(subject_id, section.id)
 
                     # Use TBA if no qualified professors found
                     if qualified_profs:
@@ -651,7 +655,7 @@ class GeneticAlgorithm:
         """Create a gene for a specific session"""
         section = next(s for s in self.sections if s.id == section_id)
 
-        qualified_profs = self._get_qualified_professors(subject_id)
+        qualified_profs = self._get_qualified_professors(subject_id, section.id)
 
         # Use TBA if no qualified professors found
         if qualified_profs:
@@ -693,7 +697,7 @@ class GeneticAlgorithm:
             mutation_type = random.choice(['professor', 'room', 'time', 'day'])
 
             if mutation_type == 'professor' and gene.professor_id != "TBA":
-                qualified_profs = self._get_qualified_professors(gene.subject_id)
+                qualified_profs = self._get_qualified_professors(gene.subject_id, gene.section_id)
                 if len(qualified_profs) > 1:  # Only mutate if alternatives exist
                     current_prof = gene.professor_id
                     alternatives = [p for p in qualified_profs if p.id != current_prof]
@@ -729,7 +733,7 @@ class GeneticAlgorithm:
         return sorted_population[:self.elite_size]
 
     def evolve(self) -> Tuple[Chromosome, List[float]]:
-        """Main evolution loop with proper termination conditions"""
+        """Main evolution loop with 5000 generation termination only"""
         print("Initializing conflict-aware population...")
         population = self.initialize_population()
 
@@ -739,109 +743,103 @@ class GeneticAlgorithm:
         best_fitness = 0.0
         generation_of_last_improvement = 0
 
-        # Termination tracking
-        generations_without_improvement = 0
-        max_generations_without_improvement = min(300, self.generations // 4)  # Adaptive based on total generations
-        fitness_improvement_threshold = 0.001  # Minimum improvement to consider significant
+        # New variables for fitness improvement tracking
+        fitness_improvement_window = 100  # Check improvement over last 100 generations
+        min_improvement_threshold = 0.002  # Minimum improvement required
 
-        for generation in range(self.generations):
+        # Set generations to 5000
+        max_generations = 10000
+
+        for generation in range(max_generations):
             self.evaluate_population(population)
 
             current_best = max(population, key=lambda x: x.fitness)
             current_best_fitness = current_best.fitness
 
-            # Update best if we found a significantly better solution
-            if current_best_fitness > best_fitness + fitness_improvement_threshold:
+            # Update best if we found a better solution
+            if current_best_fitness > best_fitness:
                 best_fitness = current_best_fitness
                 best_chromosome = copy.deepcopy(current_best)
                 generation_of_last_improvement = generation
-                generations_without_improvement = 0
                 self.stagnation_counter = 0
                 print(f"  -> New best fitness: {best_fitness:.4f} at generation {generation}")
             else:
                 self.stagnation_counter += 1
-                generations_without_improvement += 1
 
             fitness_history.append(best_fitness)
+
+            if best_fitness > 0.9:
+                print(f"Evolution terminated: Maximum generations ({max_generations}) reached")
+                print(f"Final fitness: {best_fitness:.4f} at generation {generation}")
+                break
 
             if generation % 50 == 0:
                 avg_fitness = sum(c.fitness for c in population) / len(population)
                 print(f"Gen {generation}: Best={best_fitness:.4f}, Avg={avg_fitness:.4f}, "
-                      f"Current={current_best_fitness:.4f}, NoImprove={generations_without_improvement}")
+                      f"Current={current_best_fitness:.4f}")
 
-            # Multiple termination conditions
-            termination_reason = None
+            # Check for fitness improvement termination condition
+            if generation >= fitness_improvement_window:
+                fitness_100_gens_ago = fitness_history[generation - fitness_improvement_window]
+                fitness_improvement = best_fitness - fitness_100_gens_ago
 
-            # 1. Excellent fitness achieved
-            if best_fitness >= 0.95:
-                termination_reason = f"Excellent fitness achieved: {best_fitness:.4f}"
+                if fitness_improvement < min_improvement_threshold:
+                    print(f"Evolution terminated: Fitness improved by only {fitness_improvement:.6f} "
+                          f"in the last {fitness_improvement_window} generations "
+                          f"(threshold: {min_improvement_threshold})")
+                    print(f"Final fitness: {best_fitness:.4f} at generation {generation}")
+                    break
 
-            # 2. Good enough fitness with no improvement for a while
-            elif best_fitness >= 0.8 and generations_without_improvement >= max_generations_without_improvement // 2:
-                termination_reason = f"Good fitness ({best_fitness:.4f}) with no improvement for {generations_without_improvement} generations"
-
-            # 3. Long period without any improvement
-            elif generations_without_improvement >= max_generations_without_improvement:
-                termination_reason = f"No significant improvement for {generations_without_improvement} generations"
-
-            # 4. Maximum generations reached
-            elif generation >= self.generations - 1:
-                termination_reason = f"Maximum generations ({self.generations}) reached"
-
-            # 5. Diminishing returns - very small improvements over long period
-            elif (generation > 100 and
-                  len(fitness_history) >= 100 and
-                  fitness_history[-1] - fitness_history[-100] < 0.01):
-                termination_reason = "Diminishing returns detected - very small improvements over last 100 generations"
-
-            if termination_reason:
-                print(f"Evolution terminated: {termination_reason}")
+            # ONLY other termination condition: Maximum generations reached
+            if generation >= max_generations - 1:
+                print(f"Evolution terminated: Maximum generations ({max_generations}) reached")
                 print(f"Final fitness: {best_fitness:.4f} at generation {generation}")
                 break
 
-            # Handle stagnation with restart limits (only if we haven't reached decent fitness)
+            # Handle stagnation with restart limits (keeping this as it doesn't terminate evolution)
             if self.stagnation_counter >= self.stagnation_limit and best_fitness < 0.7:
                 self.restart_count += 1
 
                 if self.restart_count >= self.max_restarts:
-                    print(f"  -> Maximum restarts ({self.max_restarts}) reached. Stopping evolution.")
-                    print(f"  -> Best fitness achieved: {best_fitness:.4f}")
-                    break
+                    print(
+                        f"  -> Maximum restarts ({self.max_restarts}) reached. Continuing evolution without restarts.")
+                    # Continue evolution instead of breaking
+                    self.stagnation_counter = 0  # Reset to avoid constant restart attempts
 
-                print(f"  -> Restart {self.restart_count}/{self.max_restarts} due to stagnation")
+                else:
+                    print(f"  -> Restart {self.restart_count}/{self.max_restarts} due to stagnation")
 
-                # Create new population but keep some elite from the best ever found
-                new_population = []
+                    # Create new population but keep some elite from the best ever found
+                    new_population = []
 
-                # Keep the absolute best chromosome
-                if best_chromosome:
-                    new_population.append(copy.deepcopy(best_chromosome))
+                    # Keep the absolute best chromosome
+                    if best_chromosome:
+                        new_population.append(copy.deepcopy(best_chromosome))
 
-                    # Add some mutated versions of the best chromosome
-                    for _ in range(min(5, self.elite_size)):
-                        mutated_best = copy.deepcopy(best_chromosome)
-                        old_mutation_rate = self.mutation_rate
-                        self.mutation_rate = 0.3  # Higher mutation for diversity
-                        for _ in range(2):  # Multiple mutations
-                            mutated_best = self.mutate(mutated_best)
-                        self.mutation_rate = old_mutation_rate
-                        new_population.append(mutated_best)
+                        # Add some mutated versions of the best chromosome
+                        for _ in range(min(5, self.elite_size)):
+                            mutated_best = copy.deepcopy(best_chromosome)
+                            old_mutation_rate = self.mutation_rate
+                            self.mutation_rate = 0.3  # Higher mutation for diversity
+                            for _ in range(2):  # Multiple mutations
+                                mutated_best = self.mutate(mutated_best)
+                            self.mutation_rate = old_mutation_rate
+                            new_population.append(mutated_best)
 
-                # Fill the rest with new chromosomes
-                while len(new_population) < self.population_size:
-                    if random.random() < 0.7:
-                        new_population.append(self.create_intelligent_chromosome())
-                    else:
-                        new_population.append(self.create_random_chromosome())
+                    # Fill the rest with new chromosomes
+                    while len(new_population) < self.population_size:
+                        if random.random() < 0.7:
+                            new_population.append(self.create_intelligent_chromosome())
+                        else:
+                            new_population.append(self.create_random_chromosome())
 
-                population = new_population
-                self.stagnation_counter = 0
-                generations_without_improvement = 0  # Reset this counter too
+                    population = new_population
+                    self.stagnation_counter = 0
 
-                # Reset adaptive parameters
-                self.mutation_rate = self.initial_mutation_rate
+                    # Reset adaptive parameters
+                    self.mutation_rate = self.initial_mutation_rate
 
-                continue
+                    continue
 
             # Inject diversity if stagnating but not ready for full restart
             if self.stagnation_counter > 0 and self.stagnation_counter % self.diversity_injection_threshold == 0:
@@ -980,7 +978,7 @@ class GeneticAlgorithm:
 
                 except (ValueError, IndexError):
                     # Fallback 1: Try assigning a different professor
-                    qualified_profs = self._get_qualified_professors(gene2.subject_id)
+                    qualified_profs = self._get_qualified_professors(gene2.subject_id, gene2.section_id)
                     if qualified_profs and len(qualified_profs) > 1:
                         alternatives = [
                             p for p in qualified_profs
@@ -1165,7 +1163,6 @@ class GeneticAlgorithm:
             'room_conflicts': 100 * chromosome._check_room_conflicts(),
             'time_window': 100 * chromosome._check_time_window(),
             'same_subject_same_day': 100 * chromosome._check_same_subject_same_day(),
-            'sunday_constraints': 100 * chromosome._check_sunday_constraints(),
             'break_constraints': 50 * chromosome._check_break_constraints(),
             'subject_spacing': 50 * chromosome.check_subject_spacing_violations(),
             'subject_room': 20 * chromosome._check_subject_room(),

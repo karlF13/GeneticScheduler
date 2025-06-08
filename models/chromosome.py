@@ -25,9 +25,6 @@ class Chromosome:
         # No two classes may be scheduled in the same room at the same time.
         self.penalty += 100 * self._check_room_conflicts()
 
-        # # A section must not have more than one class scheduled at the same time
-        # penalty += 100 * self._check_section_conflicts()
-
         # Classes must be scheduled within the time window of 7:00 AM to 9:00 PM.
         self.penalty += 100 * self._check_time_window()
 
@@ -47,8 +44,6 @@ class Chromosome:
         # Sessions of the same subject should preferably be scheduled in the same rooms.
         self.penalty +=20 * self._check_subject_room()
 
-        # Subjects should be evenly distributed throughout the week.
-        # penalty += 30 * self.check_subject_distribution()
 
         # Professor teaching schedules should be arranged to prevent consecutive lessons without breaks.
         self.penalty += 50 * self._check_professor_breaks()

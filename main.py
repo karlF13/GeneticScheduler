@@ -1,7 +1,6 @@
 # main.py
 from data.data import create_sample_data
 from algorithm.genetic import GeneticAlgorithm
-from utils.display_schedule import print_schedule
 
 if __name__ == "__main__":
     sections, subjects, professors, rooms = create_sample_data()

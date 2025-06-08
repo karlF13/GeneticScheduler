@@ -3,23 +3,20 @@ from models.resources import Room, Professor, Subject, Section, SessionType, Ses
 def create_sample_data():
     rooms = [
         #IT
+        Room("410", 50, SessionType.LECTURE, ["IT"]),
+        Room("407", 50, SessionType.LECTURE, ["IT"]),
         Room("501", 50, SessionType.LAB, ["IT"]),
         Room("502", 50, SessionType.LAB, ["IT"]),
+        Room("504", 50, SessionType.LAB, ["IT"]),
 
-        Room("407", 50, SessionType.LECTURE, ["IT"]),
-        Room("410", 50, SessionType.LECTURE, ["IT"]),
-
-        Room("504", 50, SessionType.HARDWARE_LAB, ["IT"]),
 
         #CS
         Room("431", 50, SessionType.LECTURE, ["CS"]),
-        Room("409", 50, SessionType.LECTURE, ["CS"]),
-        Room("537", 50, SessionType.LECTURE, ["CS"]),
 
-        #Shared
-        Room("503", 50, SessionType.PHYS_LAB, ["IT", "CS"]),
-        Room("505", 50, SessionType.LAB, ["IT", "CS"]),
-        Room("534", 50, SessionType.HARDWARE_LAB, ["IT", "CS"]),
+        Room("503", 50, SessionType.PHYS_LAB, ["CS", "IT"]),
+        Room("505", 50, SessionType.LAB, ["CS", "IT"]),
+        Room("534", 50, SessionType.HARDWARE_LAB, ["CS", "IT"]),
+
     ]
     professors = [
         #cs
@@ -146,39 +143,39 @@ def create_sample_data():
         # CS
         #
         # 1st year
-        Section("COM241","CS",
-                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
-        Section("COM242","CS",
-                ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
-
-        # 2nd year
-        Section("COM231" , "CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
-        Section("COM232","CS",
-                ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
-
-        #3rd year
-        Section("COM221", "CS",
-                ["CCINTHCI", "CTAPDEVL"], 45),
+        # Section("COM241","CS",
+        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        # Section("COM242","CS",
+        #         ["GEETH01X", "GENAT01R", "MNSTP02X", "MCFIT03X", "CCDISTR1", "CCOBJPGL"], 45),
+        #
+        # # 2nd year
+        # Section("COM231" , "CS",
+        #         ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+        # Section("COM232","CS",
+        #         ["CCPHYS2L", "CCQUAMET", "CTFDMBSL", "CCALCOMP", "CTBASNTL"], 45),
+        #
+        # #3rd year
+        # Section("COM221", "CS",
+        #         ["CCINTHCI", "CTAPDEVL"], 45),
 
         #IT
 
         # 1st year
-        Section("INF241",  "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF242",  "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF243", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-
-        Section("INF244", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF245", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF246", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
-        Section("INF247", "IT",
-                ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF241",  "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF242",  "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF243", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        #
+        # Section("INF244", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF245", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF246", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
+        # Section("INF247", "IT",
+        #         ["CCOBJPGL", "CCDISTR1", "GEETH01X", "MNSTP02X", "GENAT01R", "MCFIT03X"], 45),
 
         # 2nd year
         Section("INF231",  "IT",
